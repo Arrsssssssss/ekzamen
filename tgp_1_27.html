@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТГП: Вопросы 1-27</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,sans-serif;background:#1a1f2e;color:#e8e0d0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.wrap{width:100%;max-width:460px}
+.range-label{font-size:11px;color:#4a5570;text-align:center;margin-bottom:14px;letter-spacing:.05em}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{flex:1;padding:10px;border-radius:10px;border:1.5px solid #3a4460;background:#242b3d;color:#7a8aaa;font-size:13px;font-weight:600;cursor:pointer;text-align:center}
+.tab.active{background:#c5a05a;border-color:#c5a05a;color:#1a1f2e}
+.hide{display:none}
+#bar-wrap{width:100%;height:4px;background:#2a3040;border-radius:2px;margin-bottom:16px;overflow:hidden}
+#bar{height:100%;background:#c5a05a;transition:width .4s}
+.head{display:flex;justify-content:space-between;margin-bottom:12px}
+.qn{font-size:12px;color:#7a8aaa}
+.sc{font-size:13px}
+.badge{display:inline-block;background:#2a2010;border:1px solid #c5a05a66;color:#c5a05a;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.title{font-size:19px;font-weight:bold;line-height:1.45;margin-bottom:16px;min-height:50px}
+.plan{background:#1e2535;border:1px solid #3a4460;border-radius:12px;padding:14px;margin-bottom:14px}
+.plan-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7a8aaa;margin-bottom:10px}
+.pi{font-size:14px;color:#b0c4e0;line-height:1.6;padding:4px 0;border-bottom:1px solid #262f42}
+.pi:last-child{border-bottom:none}
+.hint{font-size:12px;color:#4a5570;text-align:center;margin-bottom:12px}
+.sbtn{width:100%;padding:14px;border-radius:12px;background:#242b3d;border:1.5px solid #c5a05a66;color:#c5a05a;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:14px}
+.ans{background:#1b2b1b;border:1px solid #3a5a3a;border-radius:12px;padding:16px;margin-bottom:14px}
+.ans-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a9a6a;margin-bottom:10px}
+.ans-txt{font-size:13px;line-height:1.65;color:#c0e0c0;white-space:pre-wrap}
+.checks{display:flex;gap:10px;margin-bottom:14px}
+.cb{flex:1;padding:14px;border-radius:12px;font-size:15px;font-weight:bold;cursor:pointer;border:1.5px solid}
+.yes{background:#1e3a1e;color:#a8d4a8;border-color:#4a9a4a}
+.no{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.nbtn{width:100%;padding:14px;border-radius:12px;background:#c5a05a;border:none;color:#1a1f2e;font-size:15px;font-weight:bold;cursor:pointer}
+.banner{background:#2a2010;border:1px solid #c5a05a44;border-radius:10px;padding:10px;margin-bottom:14px;font-size:13px;color:#c5a05a;text-align:center}
+.bigsc{font-size:48px;font-weight:bold;color:#c5a05a;text-align:center;margin-bottom:6px}
+.subsc{font-size:15px;text-align:center;margin-bottom:4px}
+.msgsc{font-size:13px;color:#7a8aaa;text-align:center;margin-bottom:20px}
+.rt{font-size:12px;text-transform:uppercase;padding:8px 12px;border-radius:8px;margin-bottom:10px;margin-top:16px}
+.rt-bad{background:#3a1e1e;color:#d4a8a8}
+.rt-good{background:#1e3a1e;color:#a8d4a8}
+.ri{font-size:13px;padding:8px 12px;border-radius:8px;margin-bottom:6px;line-height:1.4}
+.ri-bad{background:#2e1a1a;color:#d4a8a8;border:1px solid #4a2a2a;cursor:pointer}
+.ri-good{background:#1a2e1a;color:#a8d4a8;border:1px solid #2a4a2a}
+.acts{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.ab{flex:1;padding:13px;border-radius:12px;border:1.5px solid;font-size:14px;font-weight:bold;cursor:pointer;min-width:120px}
+.ab-rep{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.ab-all{background:#1e2535;color:#7a8aaa;border-color:#3a4460}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="range-label">Вопросы 1-27: предмет ТГП, происхождение государства и права, форма государства</div>
+<div class="tabs">
+  <div class="tab active" id="t0" onclick="goStudy()">Учить</div>
+  <div class="tab" id="t1" onclick="goStats()">Статистика</div>
+</div>
+
+<div id="study">
+  <div class="banner hide" id="banner"></div>
+  <div id="bar-wrap"><div id="bar"></div></div>
+  <div class="head"><div class="qn" id="qn"></div><div class="sc" id="sc"></div></div>
+  <div class="badge" id="badge"></div>
+  <div class="title" id="title"></div>
+  <div class="plan">
+    <div class="plan-lbl">Что нужно написать на экзамене</div>
+    <div id="plan"></div>
+  </div>
+  <div class="hint" id="hint">Прочитайте план, ответьте устно, проверьте</div>
+  <button class="sbtn" id="sbtn" onclick="reveal()">Показать полный ответ</button>
+  <div class="ans hide" id="ans">
+    <div class="ans-lbl">Полный ответ из документа</div>
+    <div class="ans-txt" id="ans-txt"></div>
+  </div>
+  <div class="checks hide" id="checks">
+    <button class="cb yes" onclick="mark(1)">Знал</button>
+    <button class="cb no" onclick="mark(0)">Не знал</button>
+  </div>
+  <button class="nbtn hide" id="nbtn" onclick="next()"></button>
+</div>
+
+<div id="results" class="hide">
+  <div class="bigsc" id="bigsc"></div>
+  <div class="subsc" id="subsc"></div>
+  <div class="msgsc" id="msgsc"></div>
+  <div id="badsec" class="hide">
+    <div class="rt rt-bad" id="badtitle"></div>
+    <div id="badlist"></div>
+  </div>
+  <div id="goodsec" class="hide">
+    <div class="rt rt-good" id="goodtitle"></div>
+    <div id="goodlist"></div>
+  </div>
+  <div class="acts">
+    <button class="ab ab-rep hide" id="repbtn" onclick="doRepeat()">Повторить слабые</button>
+    <button class="ab ab-all" onclick="doAll()">Все вопросы этого файла</button>
+  </div>
+</div>
+</div>
+
+<script>
+var questions=[{"num": "1", "title": "Предмет теории государства и права. История формирования науки", "answer": "Теория государства и права (ТГП) — это юридическая наука, изучающая общие закономерности возникновения, развития и функционирования государства и права.\n\nПредмет ТГП:\n\n• сущность и признаки государства;\n\n• происхождение и развитие права;\n\n• формы государства;\n\n• правовые нормы, отношения, ответственность;\n\n• общие понятия юридической науки.\n\nТГП сформировалась как самостоятельная наука в XIX веке. Она развивалась на основе философии, истории и юридических знаний. Сейчас является базовой дисциплиной для изучения всех отраслей права."}, {"num": "2", "title": "Место ТГП в системе наук", "answer": "ТГП занимает важное место среди юридических наук, так как изучает общие основы государства и права.\n\nСвязь с другими науками:\n\n• с историей — изучает развитие государства и права;\n\n• с политологией — изучает власть и политические процессы;\n\n• с отраслевыми юридическими науками — дает общие понятия и принципы.\n\nТГП является фундаментальной юридической наукой."}, {"num": "3", "title": "Методологические основы ТГП", "answer": "Методы ТГП — способы изучения государства и права.\n\nОсновные методы:\n\n• диалектический — изучение развития явлений;\n\n• исторический — анализ возникновения и изменений;\n\n• сравнительный — сравнение государств и правовых систем;\n\n• формально-юридический — изучение правовых норм и понятий;\n\n• системный — рассмотрение государства и права как системы."}, {"num": "4", "title": "Власть догосударственного периода", "answer": "До появления государства существовала общественная власть.\n\nЕё особенности:\n\n• принадлежала всему обществу;\n\n• основывалась на авторитете старейшин;\n\n• отсутствовал специальный аппарат управления;\n\n• решения принимались общиной.\n\nГлавная цель — поддержание порядка в коллективе."}, {"num": "5", "title": "Социальные нормы догосударственного периода", "answer": "Социальные нормы — правила поведения людей в обществе.\n\nВ догосударственный период существовали:\n\n• обычаи — привычные правила поведения;\n\n• традиции — передаваемые нормы;\n\n• ритуалы и обряды — правила общественного поведения.\n\nОни обеспечивали порядок без государственного принуждения."}, {"num": "6", "title": "Предпосылки и формы возникновения государства", "answer": "Причины возникновения государства:\n\n• развитие экономики;\n\n• разделение труда;\n\n• появление частной собственности;\n\n• социальное расслоение общества;\n\n• необходимость управления.\n\nФормы возникновения:\n\n• восточный путь (через организацию управления большими территориями);\n\n• европейский путь (через социальное разделение и появление классов)."}, {"num": "7", "title": "Возникновение права", "answer": "Право возникло из-за необходимости регулировать новые общественные отношения.\n\nПричины:\n\n• усложнение общества;\n\n• появление собственности;\n\n• необходимость защиты порядка.\n\nПраво отличается от обычаев тем, что обеспечивается государством."}, {"num": "8", "title": "Основные теории происхождения государства", "answer": "Основные теории:\n\nТеологическая — государство создано Богом.\n\nПатриархальная — государство возникло из семьи.\n\nДоговорная — люди создали государство через общественный договор.\n\nТеория насилия — государство появилось из-за завоеваний.\n\nМатериалистическая — государство возникло из-за разделения общества на классы."}, {"num": "9", "title": "Понятие государства", "answer": "Государство понимается как организация политической власти, которая управляет обществом на определенной территории.\n\nГлавные элементы:\n\n• территория;\n\n• население;\n\n• публичная власть;\n\n• суверенитет."}, {"num": "10", "title": "Признаки государства", "answer": "Основные признаки:\n\n\t1.\tТерритория — определенные границы.\n\n\t2.\tНаселение — люди, проживающие на территории.\n\n\t3.\tПубличная власть — специальные органы управления.\n\n\t4.\tСуверенитет — независимость внутри и вовне.\n\n\t5.\tПраво — система обязательных норм.\n\n\t6.\tНалоги — средства для деятельности государства."}, {"num": "11", "title": "Государственная власть и ее характеристики", "answer": "Государственная власть — это способность государства управлять обществом и обеспечивать выполнение своих решений.\n\nПризнаки:\n\n• публичный характер (осуществляется от имени государства);\n\n• распространяется на всё население;\n\n• имеет специальный аппарат управления;\n\n• использует право и принуждение;\n\n• обладает суверенитетом."}, {"num": "12", "title": "Формационный подход к типологии государства", "answer": "Формационный подход делит государства по общественно-экономическим формациям.\n\nТипы:\n\n• рабовладельческое;\n\n• феодальное;\n\n• капиталистическое;\n\n• социалистическое.\n\nПлюсы: показывает связь государства с экономикой и обществом.\n\nМинусы: слишком упрощает развитие государств, не учитывает особенности разных стран."}, {"num": "13", "title": "Цивилизационный подход", "answer": "Цивилизационный подход рассматривает государство через культуру, религию, традиции и историческое развитие.\n\nПлюсы:\n\n• учитывает особенности народов;\n\n• объясняет разнообразие государств.\n\nМинусы:\n\n• сложнее определить критерии;\n\n• возможна субъективность оценки."}, {"num": "14", "title": "Геополитические факторы развития государства", "answer": "Геополитические факторы — влияние территории и внешних условий на развитие государства.\n\nК ним относятся:\n\n• расположение страны;\n\n• природные ресурсы;\n\n• климат;\n\n• соседние государства;\n\n• международные отношения.\n\nОни влияют на экономику, политику и безопасность."}, {"num": "15", "title": "Форма государства: понятие и элементы", "answer": "Форма государства — это организация государственной власти.\n\nВключает 3 элемента:\n\n\t1.\tФорма правления — как формируются высшие органы власти.\n\n\t2.\tФорма устройства — как разделена территория.\n\n\t3.\tПолитический режим — способы осуществления власти."}, {"num": "16", "title": "Форма государственного правления", "answer": "Форма правления показывает, кто и как осуществляет верховную власть.\n\nВиды:\n\nМонархия — власть принадлежит одному правителю и обычно передается по наследству.\n\nВиды:\n\n• абсолютная;\n\n• ограниченная (конституционная).\n\nРеспублика — органы власти избираются народом.\n\nВиды:\n\n• президентская;\n\n• парламентская;\n\n• смешанная."}, {"num": "17", "title": "Нетрадиционные формы правления", "answer": "Это формы, которые не полностью соответствуют классическим видам.\n\nПримеры:\n\n• выборная монархия;\n\n• сочетание элементов монархии и республики;\n\n• особые исторические формы управления."}, {"num": "18", "title": "Форма государственного устройства", "answer": "Форма государственного устройства — территориальная организация государства.\n\nВиды:\n\nУнитарное государство — единая система власти, части государства не имеют самостоятельности.\n\nФедерация — состоит из субъектов, имеющих определенные права.\n\nКонфедерация — объединение независимых государств."}, {"num": "19", "title": "Нетипичные формы территориального устройства", "answer": "Это особые варианты организации территории.\n\nПримеры:\n\n• содружества государств;\n\n• автономные образования;\n\n• союзы государств.\n\nОни имеют особенности распределения власти между центром и территориями."}, {"num": "20", "title": "Политический режим: понятие и виды", "answer": "Политический режим — способы и методы осуществления государственной власти.\n\nОсновные виды:\n\nДемократический:\n\n• права и свободы граждан;\n\n• выборность власти;\n\n• участие народа в управлении.\n\nАвторитарный:\n\n• власть сосредоточена у одного лидера или группы;\n\n• ограниченная политическая свобода.\n\nТоталитарный:\n\n• полный контроль государства над обществом;\n\n• отсутствие политической свободы."}, {"num": "21", "title": "Особые формы политических режимов", "answer": "Особые режимы — это разновидности политической власти с необычными признаками.\n\nПримеры:\n\nВоенный режим — власть принадлежит военным, часто устанавливается после переворотов.\n\nТеократический режим — власть основана на религиозных принципах, религиозные лидеры участвуют в управлении.\n\nПереходный режим — период изменения политической системы."}, {"num": "22", "title": "Форма российской государственности", "answer": "Россия — это:\n\nФорма правления: смешанная республика.\n\n(Президент имеет широкие полномочия, но действует парламент и правительство.)\n\nФорма устройства: федерация.\n\n(Россия состоит из субъектов Федерации.)\n\nПолитический режим: демократический.\n\nОсновы закреплены в Конституции РФ."}, {"num": "23", "title": "Соотношение типа и формы государства", "answer": "Тип государства — характеристика государства с точки зрения его сущности и исторического развития.\n\nФорма государства — способ организации власти.\n\nСвязь:\n\n• тип показывает содержание государства;\n\n• форма показывает внешнюю организацию."}, {"num": "24", "title": "Функции государства: понятие и содержание", "answer": "Функции государства — основные направления деятельности государства.\n\nОни связаны с задачами государства и показывают, чем оно занимается.\n\nПримеры:\n\n• защита прав граждан;\n\n• обеспечение порядка;\n\n• развитие экономики;\n\n• оборона страны."}, {"num": "25", "title": "Классификация функций государства", "answer": "Функции делятся:\n\nПо сфере деятельности:\n\nВнутренние:\n\n• экономическая;\n\n• социальная;\n\n• правоохранительная;\n\n• экологическая.\n\nВнешние:\n\n• оборона;\n\n• международное сотрудничество;\n\n• защита интересов страны."}, {"num": "26", "title": "Внутренние и внешние функции России", "answer": "Внутренние:\n\n• обеспечение законности;\n\n• развитие экономики;\n\n• социальная защита;\n\n• охрана окружающей среды.\n\nВнешние:\n\n• оборона государства;\n\n• дипломатические отношения;\n\n• обеспечение безопасности."}, {"num": "27", "title": "Механизм государства: понятие и структура", "answer": "Механизм государства — система государственных органов и организаций, через которые осуществляется власть.\n\nСтруктура:\n\n• государственные органы;\n\n• государственные учреждения;\n\n• государственные предприятия;\n\n• служащие."}];
+var plans={"1": ["1. Определение ТГП — юридическая наука об общих закономерностях государства и права", "2. Предмет: сущность и признаки государства, происхождение права, формы государства, нормы, отношения, ответственность", "3. История: сформировалась как самостоятельная наука в XIX веке на основе философии, истории, юриспруденции", "4. Роль: базовая дисциплина для изучения всех отраслей права"], "2": ["1. ТГП — фундаментальная юридическая наука среди всех юридических дисциплин", "2. Связь с историей: изучает развитие государства и права во времени", "3. Связь с политологией: изучает власть и политические процессы", "4. Связь с отраслевыми науками: даёт общие понятия и принципы для них"], "3": ["1. Методы ТГП — способы изучения государства и права", "2. Диалектический метод — изучение развития явлений", "3. Исторический и сравнительный методы — анализ изменений и сравнение систем", "4. Формально-юридический и системный методы — изучение норм и системности"], "4": ["1. Власть догосударственного периода — общественная власть до появления государства", "2. Принадлежала всему обществу, основывалась на авторитете старейшин", "3. Отсутствовал специальный аппарат управления", "4. Решения принимались общиной, цель — поддержание порядка в коллективе"], "5": ["1. Социальные нормы — правила поведения людей в обществе", "2. Обычаи — привычные правила поведения", "3. Традиции — передаваемые из поколения в поколение нормы", "4. Ритуалы и обряды — правила общественного поведения; обеспечивали порядок без государственного принуждения"], "6": ["1. Причины возникновения государства: развитие экономики, разделение труда, частная собственность, расслоение общества", "2. Необходимость управления усложнившимся обществом", "3. Восточный путь — через организацию управления большими территориями", "4. Европейский путь — через социальное разделение и появление классов"], "7": ["1. Причины возникновения права: усложнение общества, появление собственности", "2. Необходимость защиты порядка в новых общественных отношениях", "3. Отличие права от обычаев — обеспечивается государством (принудительной силой)"], "8": ["1. Теологическая теория — государство создано Богом", "2. Патриархальная теория — государство возникло из семьи", "3. Договорная теория — общественный договор между людьми", "4. Теория насилия — государство из завоеваний", "5. Материалистическая теория — из разделения общества на классы"], "9": ["1. Государство — организация политической власти, управляющая обществом на определённой территории", "2. Главные элементы: территория, население, публичная власть, суверенитет"], "10": ["1. Территория — определённые границы государства", "2. Население — люди, проживающие на территории", "3. Публичная власть — специальные органы управления", "4. Суверенитет — независимость внутри и вовне", "5. Право — система обязательных норм", "6. Налоги — средства для деятельности государства"], "11": ["1. Государственная власть — способность управлять обществом и обеспечивать выполнение решений", "2. Публичный характер — осуществляется от имени государства", "3. Распространяется на всё население, имеет специальный аппарат управления", "4. Использует право и принуждение, обладает суверенитетом"], "12": ["1. Формационный подход делит государства по общественно-экономическим формациям", "2. Типы: рабовладельческое, феодальное, буржуазное, социалистическое государство", "3. Критерий деления — способ производства и классовая структура общества"], "13": ["1. Цивилизационный подход — деление государств по уровню культуры и цивилизации", "2. Учитывает духовные, культурные и национальные особенности общества", "3. Отличие от формационного подхода — акцент не на экономике, а на цивилизационных факторах"], "14": ["1. Геополитические факторы — географическое положение, природные ресурсы, климат", "2. Влияние на форму государства, его экономику и внешнюю политику", "3. Территориальное положение определяет отношения с соседними государствами"], "15": ["1. Форма государства — способ организации и осуществления государственной власти", "2. Элементы: форма правления, форма государственного устройства, политический режим"], "16": ["1. Форма правления — порядок организации высших органов власти", "2. Монархия — власть передаётся по наследству (абсолютная и ограниченная)", "3. Республика — власть избирается на определённый срок (президентская, парламентская, смешанная)"], "17": ["1. Нетрадиционные формы правления — отклонения от классических монархии и республики", "2. Примеры: теократическая монархия, суперпрезидентская республика, монархическая республика", "3. Смешанные и переходные формы правления в современных государствах"], "18": ["1. Форма государственного устройства — способ территориальной организации государства", "2. Унитарное государство — единое, без самостоятельных территориальных образований", "3. Федерация — союз государственных образований с самостоятельностью субъектов", "4. Конфедерация — союз суверенных государств для определённых целей"], "19": ["1. Нетипичные формы территориального устройства — отклонения от унитарного и федеративного устройства", "2. Регионалистское государство — широкая автономия регионов без федерализма", "3. Содружество, империя как переходные или особые формы"], "20": ["1. Политический режим — совокупность методов осуществления государственной власти", "2. Демократический режим — власть народа, права и свободы граждан", "3. Авторитарный режим — ограниченные права при сохранении некоторых свобод", "4. Тоталитарный режим — полный контроль государства над обществом"], "21": ["1. Особые формы политических режимов — переходные и смешанные виды", "2. Примеры: military режим, теократический режим, гибридный режим", "3. Сочетание элементов демократии и авторитаризма в отдельных государствах"], "22": ["1. Форма российской государственности — современная РФ", "2. Форма правления — президентская республика", "3. Форма устройства — федеративное государство", "4. Политический режим — демократический"], "23": ["1. Тип государства — характеризует сущность власти (классовый/цивилизационный критерий)", "2. Форма государства — способ организации этой власти (правление, устройство, режим)", "3. Соотношение: один тип может иметь разные формы; форма не определяет тип"], "24": ["1. Функции государства — основные направления его деятельности", "2. Содержание функций — конкретные действия государства по управлению обществом", "3. Функции отражают сущность и социальное назначение государства"], "25": ["1. По сфере деятельности: внутренние и внешние функции", "2. По продолжительности: постоянные и временные", "3. По значимости: основные и неосновные функции государства"], "26": ["1. Внутренние функции России: экономическая, социальная, экологическая, охранительная", "2. Внешние функции: оборона, дипломатия, сотрудничество с другими государствами", "3. Взаимосвязь внутренних и внешних функций в современном государстве"], "27": ["1. Механизм государства — система органов и учреждений, реализующих функции государства", "2. Структура: государственные органы, государственные организации, государственный аппарат", "3. Механизм обеспечивает практическое осуществление государственной власти"]};
+
+var queue = [];
+var cur = 0;
+var good = [];
+var bad = [];
+var marked = false;
+var weak = false;
+var TOTAL = 106;
+
+function startQuiz(isWeak) {
+  weak = isWeak;
+  if (isWeak) {
+    queue = [];
+    for (var i = 0; i < questions.length; i++) {
+      for (var j = 0; j < bad.length; j++) {
+        if (bad[j].num === questions[i].num) { queue.push(questions[i]); break; }
+      }
+    }
+  } else {
+    queue = questions.slice();
+    good = [];
+    bad = [];
+  }
+  if (queue.length === 0) return;
+  cur = 0;
+  marked = false;
+  show();
+}
+
+function show() {
+  if (cur >= queue.length) { showResults(); return; }
+  var q = queue[cur];
+  document.getElementById('bar').style.width = (cur / queue.length * 100) + '%';
+  document.getElementById('qn').textContent = 'Вопрос ' + (cur + 1) + ' из ' + queue.length;
+  document.getElementById('badge').textContent = 'Вопрос ' + q.num + ' из ' + TOTAL;
+  document.getElementById('title').textContent = q.title;
+  document.getElementById('ans-txt').textContent = q.answer;
+  var plan = plans[q.num] || [q.title];
+  var h = '';
+  for (var i = 0; i < plan.length; i++) { h += '<div class="pi">' + plan[i] + '</div>'; }
+  document.getElementById('plan').innerHTML = h;
+  document.getElementById('ans').className = 'ans hide';
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').className = 'nbtn hide';
+  document.getElementById('sbtn').className = 'sbtn';
+  document.getElementById('hint').style.display = 'block';
+  var b = document.getElementById('banner');
+  if (weak) { b.className = 'banner'; b.textContent = 'Повтор слабых: ' + queue.length + ' вопросов'; }
+  else { b.className = 'banner hide'; }
+  updateScore();
+  marked = false;
+}
+
+function updateScore() {
+  document.getElementById('sc').innerHTML = '<span style="color:#a8d4a8">+' + good.length + '</span> <span style="color:#d4a8a8">-' + bad.length + '</span>';
+}
+
+function reveal() {
+  document.getElementById('ans').className = 'ans';
+  document.getElementById('checks').className = 'checks';
+  document.getElementById('sbtn').className = 'sbtn hide';
+  document.getElementById('hint').style.display = 'none';
+}
+
+function mark(knew) {
+  if (marked) return;
+  marked = true;
+  var q = queue[cur];
+  var k;
+  if (knew) {
+    bad = bad.filter(function(b){ return b.num !== q.num; });
+    var f = false;
+    for (k = 0; k < good.length; k++) { if (good[k].num === q.num) f = true; }
+    if (!f) good.push(q);
+  } else {
+    good = good.filter(function(g){ return g.num !== q.num; });
+    var f2 = false;
+    for (k = 0; k < bad.length; k++) { if (bad[k].num === q.num) f2 = true; }
+    if (!f2) bad.push(q);
+  }
+  updateScore();
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').textContent = (cur + 1 < queue.length) ? 'Следующий' : 'Завершить';
+  document.getElementById('nbtn').className = 'nbtn';
+}
+
+function next() {
+  cur++;
+  show();
+}
+
+function showResults() {
+  document.getElementById('study').className = 'hide';
+  document.getElementById('results').className = '';
+  document.getElementById('t0').className = 'tab';
+  document.getElementById('t1').className = 'tab active';
+  var pct = Math.round(good.length / questions.length * 100);
+  document.getElementById('bigsc').textContent = good.length + ' / ' + questions.length;
+  document.getElementById('subsc').textContent = pct + '% знаете';
+  var m;
+  if (pct >= 90) m = 'Отлично! Готов к экзамену!';
+  else if (pct >= 70) m = 'Хорошо! Повторите слабые.';
+  else if (pct >= 50) m = 'Ещё нужно поработать.';
+  else m = 'Повторите материал.';
+  document.getElementById('msgsc').textContent = m;
+  var i, h;
+  if (bad.length > 0) {
+    document.getElementById('badsec').className = '';
+    document.getElementById('badtitle').textContent = 'Не знал: ' + bad.length + ' (нажмите чтобы перейти)';
+    h = '';
+    for (i = 0; i < bad.length; i++) {
+      h += '<div class="ri ri-bad" onclick="jump(\'' + bad[i].num + '\')">[' + bad[i].num + '] ' + bad[i].title + '</div>';
+    }
+    document.getElementById('badlist').innerHTML = h;
+    document.getElementById('repbtn').className = 'ab ab-rep';
+  } else {
+    document.getElementById('badsec').className = 'hide';
+    document.getElementById('repbtn').className = 'ab ab-rep hide';
+  }
+  if (good.length > 0) {
+    document.getElementById('goodsec').className = '';
+    document.getElementById('goodtitle').textContent = 'Знал: ' + good.length;
+    h = '';
+    for (i = 0; i < good.length; i++) {
+      h += '<div class="ri ri-good">[' + good[i].num + '] ' + good[i].title + '</div>';
+    }
+    document.getElementById('goodlist').innerHTML = h;
+  } else {
+    document.getElementById('goodsec').className = 'hide';
+  }
+}
+
+function jump(num) {
+  var idx = -1;
+  for (var i = 0; i < questions.length; i++) { if (questions[i].num === num) idx = i; }
+  if (idx < 0) return;
+  queue = questions.slice();
+  weak = false;
+  cur = idx;
+  marked = false;
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  show();
+}
+
+function doRepeat() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(true);
+}
+
+function doAll() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(false);
+}
+
+function goStudy() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+}
+
+function goStats() {
+  showResults();
+}
+
+startQuiz(false);
+</script>
+</body>
+</html>

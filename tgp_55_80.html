@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТГП: Вопросы 55-80</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,sans-serif;background:#1a1f2e;color:#e8e0d0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.wrap{width:100%;max-width:460px}
+.range-label{font-size:11px;color:#4a5570;text-align:center;margin-bottom:14px;letter-spacing:.05em}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{flex:1;padding:10px;border-radius:10px;border:1.5px solid #3a4460;background:#242b3d;color:#7a8aaa;font-size:13px;font-weight:600;cursor:pointer;text-align:center}
+.tab.active{background:#c5a05a;border-color:#c5a05a;color:#1a1f2e}
+.hide{display:none}
+#bar-wrap{width:100%;height:4px;background:#2a3040;border-radius:2px;margin-bottom:16px;overflow:hidden}
+#bar{height:100%;background:#c5a05a;transition:width .4s}
+.head{display:flex;justify-content:space-between;margin-bottom:12px}
+.qn{font-size:12px;color:#7a8aaa}
+.sc{font-size:13px}
+.badge{display:inline-block;background:#2a2010;border:1px solid #c5a05a66;color:#c5a05a;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.title{font-size:19px;font-weight:bold;line-height:1.45;margin-bottom:16px;min-height:50px}
+.plan{background:#1e2535;border:1px solid #3a4460;border-radius:12px;padding:14px;margin-bottom:14px}
+.plan-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7a8aaa;margin-bottom:10px}
+.pi{font-size:14px;color:#b0c4e0;line-height:1.6;padding:4px 0;border-bottom:1px solid #262f42}
+.pi:last-child{border-bottom:none}
+.hint{font-size:12px;color:#4a5570;text-align:center;margin-bottom:12px}
+.sbtn{width:100%;padding:14px;border-radius:12px;background:#242b3d;border:1.5px solid #c5a05a66;color:#c5a05a;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:14px}
+.ans{background:#1b2b1b;border:1px solid #3a5a3a;border-radius:12px;padding:16px;margin-bottom:14px}
+.ans-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a9a6a;margin-bottom:10px}
+.ans-txt{font-size:13px;line-height:1.65;color:#c0e0c0;white-space:pre-wrap}
+.checks{display:flex;gap:10px;margin-bottom:14px}
+.cb{flex:1;padding:14px;border-radius:12px;font-size:15px;font-weight:bold;cursor:pointer;border:1.5px solid}
+.yes{background:#1e3a1e;color:#a8d4a8;border-color:#4a9a4a}
+.no{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.nbtn{width:100%;padding:14px;border-radius:12px;background:#c5a05a;border:none;color:#1a1f2e;font-size:15px;font-weight:bold;cursor:pointer}
+.banner{background:#2a2010;border:1px solid #c5a05a44;border-radius:10px;padding:10px;margin-bottom:14px;font-size:13px;color:#c5a05a;text-align:center}
+.bigsc{font-size:48px;font-weight:bold;color:#c5a05a;text-align:center;margin-bottom:6px}
+.subsc{font-size:15px;text-align:center;margin-bottom:4px}
+.msgsc{font-size:13px;color:#7a8aaa;text-align:center;margin-bottom:20px}
+.rt{font-size:12px;text-transform:uppercase;padding:8px 12px;border-radius:8px;margin-bottom:10px;margin-top:16px}
+.rt-bad{background:#3a1e1e;color:#d4a8a8}
+.rt-good{background:#1e3a1e;color:#a8d4a8}
+.ri{font-size:13px;padding:8px 12px;border-radius:8px;margin-bottom:6px;line-height:1.4}
+.ri-bad{background:#2e1a1a;color:#d4a8a8;border:1px solid #4a2a2a;cursor:pointer}
+.ri-good{background:#1a2e1a;color:#a8d4a8;border:1px solid #2a4a2a}
+.acts{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.ab{flex:1;padding:13px;border-radius:12px;border:1.5px solid;font-size:14px;font-weight:bold;cursor:pointer;min-width:120px}
+.ab-rep{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.ab-all{background:#1e2535;color:#7a8aaa;border-color:#3a4460}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="range-label">Вопросы 55-80: структура нормы, источники права, система права, правоотношения</div>
+<div class="tabs">
+  <div class="tab active" id="t0" onclick="goStudy()">Учить</div>
+  <div class="tab" id="t1" onclick="goStats()">Статистика</div>
+</div>
+
+<div id="study">
+  <div class="banner hide" id="banner"></div>
+  <div id="bar-wrap"><div id="bar"></div></div>
+  <div class="head"><div class="qn" id="qn"></div><div class="sc" id="sc"></div></div>
+  <div class="badge" id="badge"></div>
+  <div class="title" id="title"></div>
+  <div class="plan">
+    <div class="plan-lbl">Что нужно написать на экзамене</div>
+    <div id="plan"></div>
+  </div>
+  <div class="hint" id="hint">Прочитайте план, ответьте устно, проверьте</div>
+  <button class="sbtn" id="sbtn" onclick="reveal()">Показать полный ответ</button>
+  <div class="ans hide" id="ans">
+    <div class="ans-lbl">Полный ответ из документа</div>
+    <div class="ans-txt" id="ans-txt"></div>
+  </div>
+  <div class="checks hide" id="checks">
+    <button class="cb yes" onclick="mark(1)">Знал</button>
+    <button class="cb no" onclick="mark(0)">Не знал</button>
+  </div>
+  <button class="nbtn hide" id="nbtn" onclick="next()"></button>
+</div>
+
+<div id="results" class="hide">
+  <div class="bigsc" id="bigsc"></div>
+  <div class="subsc" id="subsc"></div>
+  <div class="msgsc" id="msgsc"></div>
+  <div id="badsec" class="hide">
+    <div class="rt rt-bad" id="badtitle"></div>
+    <div id="badlist"></div>
+  </div>
+  <div id="goodsec" class="hide">
+    <div class="rt rt-good" id="goodtitle"></div>
+    <div id="goodlist"></div>
+  </div>
+  <div class="acts">
+    <button class="ab ab-rep hide" id="repbtn" onclick="doRepeat()">Повторить слабые</button>
+    <button class="ab ab-all" onclick="doAll()">Все вопросы этого файла</button>
+  </div>
+</div>
+</div>
+
+<script>
+var questions=[{"num": "55", "title": "Структура нормы права", "answer": "Структура нормы права включает:\n\n\t1.\tГипотеза — условия действия нормы.\n\n\t2.\tДиспозиция — само правило поведения.\n\n\t3.\tСанкция — последствия нарушения нормы."}, {"num": "56", "title": "Гипотеза нормы права", "answer": "Гипотеза — часть нормы, которая указывает условия её применения.\n\nВиды:\n\n• простая — одно условие;\n\n• сложная — несколько условий;\n\n• альтернативная — возможны разные условия."}, {"num": "57", "title": "Диспозиция нормы права", "answer": "Диспозиция — часть нормы, где указано правило поведения.\n\nВиды:\n\n• управомочивающая (дает право);\n\n• обязывающая (требует действия);\n\n• запрещающая (запрещает действие)."}, {"num": "58", "title": "Санкция нормы права", "answer": "Санкция — часть нормы, которая устанавливает последствия нарушения.\n\nВиды:\n\n• положительная — поощрение;\n\n• отрицательная — наказание.\n\nПримеры:\n\n• штраф;\n\n• лишение права;\n\n• иные меры ответственности."}, {"num": "59", "title": "Виды норм права", "answer": "Нормы права классифицируют:\n\nПо назначению:\n\n• регулятивные;\n\n• охранительные.\n\nПо характеру поведения:\n\n• обязывающие;\n\n• запрещающие;\n\n• управомочивающие.\n\nПо отрасли права:\n\n• гражданские;\n\n• уголовные;\n\n• административные и др."}, {"num": "60", "title": "Норма права и статья нормативного акта", "answer": "Норма права — правило поведения.\n\nСтатья нормативного акта — форма закрепления нормы в законе.\n\nСпособы изложения:\n\n• прямой — норма полностью указана;\n\n• ссылочный — есть ссылка на другую статью;\n\n• бланкетный — обращение к другим актам."}, {"num": "61", "title": "Формы (источники) права", "answer": "Источник права — способ внешнего выражения правовых норм.\n\nОсновные виды:\n\n• нормативно-правовой акт — официальный документ с нормами права;\n\n• правовой обычай — правило, признанное государством;\n\n• судебный прецедент — решение суда, которое становится примером;\n\n• нормативный договор — соглашение с правовыми нормами."}, {"num": "62", "title": "Нормативно-правовые акты", "answer": "Нормативно-правовой акт (НПА) — официальный документ, содержащий нормы права.\n\nПризнаки:\n\n• принимается компетентным органом;\n\n• содержит обязательные правила;\n\n• действует многократно;\n\n• имеет установленную форму.\n\nВиды:\n\n• законы;\n\n• подзаконные акты."}, {"num": "63", "title": "Действие норм права во времени, пространстве и по кругу лиц", "answer": "Во времени:\n\n• начинает действовать после вступления в силу;\n\n• прекращает действие после отмены.\n\nВ пространстве:\n\n• действует на территории государства или его части.\n\nПо кругу лиц:\n\n• распространяется на всех или на определенные категории лиц."}, {"num": "64", "title": "Правотворчество", "answer": "Правотворчество — деятельность по созданию, изменению и отмене правовых норм.\n\nВиды:\n\n• законотворчество;\n\n• подзаконное нормотворчество.\n\nПринципы:\n\n• законность;\n\n• научность;\n\n• обоснованность;\n\n• учет интересов общества."}, {"num": "65", "title": "Нормотворчество и законотворчество", "answer": "Нормотворчество — создание любых правовых норм.\n\nЗаконотворчество — создание именно законов.\n\nСтадии:\n\n\t1.\tподготовка проекта;\n\n\t2.\tобсуждение;\n\n\t3.\tпринятие;\n\n\t4.\tопубликование;\n\n\t5.\tвступление в силу."}, {"num": "66", "title": "Систематизация законодательства", "answer": "Систематизация — приведение законодательства в порядок.\n\nВиды:\n\nИнкорпорация — объединение актов без изменения содержания.\n\nКодификация — создание нового единого закона (кодекса).\n\nКонсолидация — объединение нескольких актов в один."}, {"num": "67", "title": "Юридическая техника", "answer": "Юридическая техника — правила создания и оформления правовых документов.\n\nВключает:\n\n• правильное использование терминов;\n\n• структуру документов;\n\n• способы формулирования норм;\n\n• оформление законов."}, {"num": "68", "title": "Система права", "answer": "Система права — внутреннее строение права.\n\nЭлементы:\n\n• нормы права;\n\n• институты права;\n\n• отрасли права.\n\nОтличие:\n\n• система права показывает содержание права;\n\n• система законодательства — расположение законов."}, {"num": "69", "title": "Правовые системы и правовые семьи", "answer": "Правовая система — совокупность права, законодательства и юридической практики государства.\n\nПравовая семья — группа правовых систем с общими признаками.\n\nОсновные семьи:\n\n• романо-германская;\n\n• англосаксонская;\n\n• религиозная;\n\n• традиционная."}, {"num": "70", "title": "Англосаксонская правовая семья", "answer": "Особенности:\n\n• главный источник — судебный прецедент;\n\n• большое значение имеют решения судов;\n\n• право развивается через судебную практику.\n\nРаспространена в странах общего права."}, {"num": "71", "title": "Романо-германская правовая семья", "answer": "Особенности:\n\n• главный источник права — нормативно-правовой акт;\n\n• важную роль играет закон;\n\n• право делится на отрасли.\n\nРаспространена в странах Европы, включая Россию."}, {"num": "72", "title": "Семья религиозного права", "answer": "Основана на религиозных нормах.\n\nОсобенности:\n\n• источником права являются религиозные тексты;\n\n• право связано с религией;\n\n• большое значение имеют традиции.\n\nПример — некоторые государства с исламской правовой системой."}, {"num": "73", "title": "Структура системы права", "answer": "Элементы системы права:\n\nНорма права — основное правило поведения.\n\nПравовой институт — группа норм, регулирующих определенный вопрос.\n\nОтрасль права — крупная система норм, регулирующая сферу отношений.\n\nТакже право делится на:\n\nПубличное право — регулирует отношения государства и граждан.\n\nЧастное право — регулирует отношения между равными участниками."}, {"num": "74", "title": "Отрасли права", "answer": "Отрасль права — совокупность норм, регулирующих определенную сферу отношений.\n\nОсновные отрасли:\n\n• конституционное;\n\n• гражданское;\n\n• уголовное;\n\n• административное;\n\n• трудовое;\n\n• семейное;\n\n• финансовое."}, {"num": "75", "title": "Правовые отношения", "answer": "Правоотношение — общественное отношение, урегулированное нормами права.\n\nПризнаки:\n\n• имеют участников;\n\n• основаны на праве;\n\n• связаны с правами и обязанностями.\n\nСтруктура:\n\n• субъекты;\n\n• объект;\n\n• содержание."}, {"num": "76", "title": "Субъекты правоотношений", "answer": "Субъекты — участники правоотношений.\n\nИми могут быть:\n\n• физические лица;\n\n• организации;\n\n• государство.\n\nПонятия:\n\nПравоспособность — способность иметь права и обязанности.\n\nДееспособность — способность своими действиями приобретать права.\n\nДеликтоспособность — способность нести юридическую ответственность."}, {"num": "77", "title": "Содержание правоотношений", "answer": "Содержание включает:\n\nСубъективные права — возможность действовать определенным образом.\n\nЮридические обязанности — необходимость совершать или не совершать действия.\n\nТакже выделяют:\n\n• правомочия;\n\n• правопритязания."}, {"num": "78", "title": "Объекты правоотношений", "answer": "Объект правоотношения — то, по поводу чего возникают права и обязанности.\n\nВиды:\n\n• вещи;\n\n• деньги;\n\n• услуги;\n\n• результаты деятельности;\n\n• личные нематериальные блага."}, {"num": "79", "title": "Виды правоотношений", "answer": "Классификация:\n\nПо отрасли права:\n\n• гражданские;\n\n• уголовные;\n\n• административные и др.\n\nПо функции:\n\n• регулятивные;\n\n• охранительные.\n\nПо количеству участников:\n\n• простые;\n\n• сложные."}, {"num": "80", "title": "Юридические факты", "answer": "Юридические факты — жизненные обстоятельства, которые создают, изменяют или прекращают правоотношения.\n\nВиды:\n\nСобытия — происходят независимо от воли человека (например, смерть, стихийное явление).\n\nДействия — зависят от воли человека:\n\n• правомерные;\n\n• неправомерные."}];
+var plans={"55": ["1. Структура нормы права — внутреннее строение правовой нормы", "2. Гипотеза — условия применения нормы", "3. Диспозиция — само правило поведения", "4. Санкция — последствия несоблюдения нормы"], "56": ["1. Гипотеза — часть нормы, указывающая условия её действия", "2. Виды гипотез: простые, сложные, альтернативные", "3. Гипотеза определяет, при каких обстоятельствах норма применяется"], "57": ["1. Диспозиция — часть нормы, содержащая само правило поведения", "2. Виды: управомочивающая, обязывающая, запрещающая диспозиция", "3. Диспозиция определяет права и обязанности участников отношений"], "58": ["1. Санкция — часть нормы, устанавливающая последствия её нарушения", "2. Виды санкций: карательные (наказание) и восстановительные (компенсация)", "3. Санкция обеспечивает исполнение требований нормы права"], "59": ["1. По отраслям права: конституционные, гражданские, уголовные нормы", "2. По характеру предписания: императивные и диспозитивные нормы", "3. По функциям: регулятивные и охранительные нормы права"], "60": ["1. Норма права — логическая структура (гипотеза, диспозиция, санкция)", "2. Статья нормативного акта — форма внешнего выражения нормы", "3. Соотношение: одна статья может содержать несколько норм, или норма — в нескольких статьях"], "61": ["1. Источники права — формы внешнего выражения правовых норм", "2. Нормативно-правовой акт — основной источник в романо-германской семье", "3. Правовой обычай, судебный прецедент, нормативный договор как иные источники"], "62": ["1. Нормативно-правовой акт — официальный документ, содержащий нормы права", "2. Виды: законы (высшая сила) и подзаконные акты (указы, постановления)", "3. Иерархия актов — от Конституции до актов местного самоуправления"], "63": ["1. Действие во времени — с момента вступления в силу до отмены", "2. Действие в пространстве — на территории государства или его части", "3. Действие по кругу лиц — на граждан, иностранцев, юридических лиц"], "64": ["1. Правотворчество — деятельность по созданию, изменению и отмене правовых норм", "2. Принципы: законность, демократизм, научная обоснованность", "3. Субъекты правотворчества — государственные органы, народ (референдум)"], "65": ["1. Нормотворчество — более широкое понятие создания правовых норм", "2. Законотворчество — процесс принятия законов парламентом", "3. Соотношение: законотворчество — частный случай нормотворчества"], "66": ["1. Систематизация законодательства — упорядочивание нормативных актов", "2. Кодификация — создание нового единого акта (кодекса)", "3. Инкорпорация — объединение актов без изменения содержания"], "67": ["1. Юридическая техника — совокупность приёмов и правил подготовки правовых актов", "2. Требования: ясность, точность, логичность юридического языка", "3. Использование юридических терминов, правовых конструкций и презумпций"], "68": ["1. Система права — внутреннее строение права, деление на отрасли и институты", "2. Отрасль права — крупное подразделение по предмету и методу регулирования", "3. Институт права — совокупность норм внутри отрасли, регулирующих группу отношений"], "69": ["1. Правовая система — право конкретного государства в совокупности с практикой применения", "2. Правовая семья — группа правовых систем с общими историческими корнями", "3. Основные семьи: романо-германская, англосаксонская, религиозная, традиционная"], "70": ["1. Англосаксонская правовая семья — основана на судебном прецеденте", "2. Главный источник права — решения судов (Великобритания, США)", "3. Особенности: гибкость, индуктивный метод, меньшая роль кодификации"], "71": ["1. Романо-германская правовая семья — основана на писаном законе", "2. Главный источник — нормативно-правовой акт, кодификация (Россия, Германия, Франция)", "3. Особенности: чёткая иерархия актов, ведущая роль доктрины"], "72": ["1. Семья религиозного права — нормы основаны на религиозных текстах", "2. Примеры: мусульманское право (шариат), индусское право", "3. Особенности: тесная связь права с религиозной моралью и традициями"], "73": ["1. Структура системы права: отрасли, подотрасли, институты, нормы права", "2. Отрасль — крупнейшее структурное подразделение (например, гражданское право)", "3. Институт — группа норм внутри отрасли (например, институт собственности)"], "74": ["1. Отрасль права — совокупность норм, регулирующих однородную группу отношений", "2. Критерии деления: предмет (что регулирует) и метод (как регулирует)", "3. Примеры отраслей: конституционное, гражданское, уголовное, административное право"], "75": ["1. Правоотношение — общественное отношение, урегулированное нормой права", "2. Признаки: возникает на основе нормы, имеет участников с правами и обязанностями", "3. Охраняется государством, имеет волевой и индивидуализированный характер"], "76": ["1. Субъекты правоотношений — участники, обладающие правами и обязанностями", "2. Физические лица, юридические лица, государство как субъекты права", "3. Правоспособность и дееспособность как условия участия в правоотношениях"], "77": ["1. Содержание правоотношения — субъективные права и юридические обязанности сторон", "2. Субъективное право — мера возможного поведения участника", "3. Юридическая обязанность — мера необходимого (должного) поведения"], "78": ["1. Объект правоотношения — то, на что направлены права и обязанности сторон", "2. Виды объектов: материальные блага, действия, результаты творческой деятельности", "3. Личные неимущественные блага как объект отдельных правоотношений"], "79": ["1. По отраслям права: гражданские, уголовные, административные правоотношения", "2. По характеру: регулятивные и охранительные правоотношения", "3. По числу участников: простые (двусторонние) и сложные (многосторонние)"], "80": ["1. Юридический факт — конкретное жизненное обстоятельство, влекущее правовые последствия", "2. События — обстоятельства, не зависящие от воли людей (рождение, смерть)", "3. Действия — волевые акты людей (правомерные и неправомерные)"]};
+
+var queue = [];
+var cur = 0;
+var good = [];
+var bad = [];
+var marked = false;
+var weak = false;
+var TOTAL = 106;
+
+function startQuiz(isWeak) {
+  weak = isWeak;
+  if (isWeak) {
+    queue = [];
+    for (var i = 0; i < questions.length; i++) {
+      for (var j = 0; j < bad.length; j++) {
+        if (bad[j].num === questions[i].num) { queue.push(questions[i]); break; }
+      }
+    }
+  } else {
+    queue = questions.slice();
+    good = [];
+    bad = [];
+  }
+  if (queue.length === 0) return;
+  cur = 0;
+  marked = false;
+  show();
+}
+
+function show() {
+  if (cur >= queue.length) { showResults(); return; }
+  var q = queue[cur];
+  document.getElementById('bar').style.width = (cur / queue.length * 100) + '%';
+  document.getElementById('qn').textContent = 'Вопрос ' + (cur + 1) + ' из ' + queue.length;
+  document.getElementById('badge').textContent = 'Вопрос ' + q.num + ' из ' + TOTAL;
+  document.getElementById('title').textContent = q.title;
+  document.getElementById('ans-txt').textContent = q.answer;
+  var plan = plans[q.num] || [q.title];
+  var h = '';
+  for (var i = 0; i < plan.length; i++) { h += '<div class="pi">' + plan[i] + '</div>'; }
+  document.getElementById('plan').innerHTML = h;
+  document.getElementById('ans').className = 'ans hide';
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').className = 'nbtn hide';
+  document.getElementById('sbtn').className = 'sbtn';
+  document.getElementById('hint').style.display = 'block';
+  var b = document.getElementById('banner');
+  if (weak) { b.className = 'banner'; b.textContent = 'Повтор слабых: ' + queue.length + ' вопросов'; }
+  else { b.className = 'banner hide'; }
+  updateScore();
+  marked = false;
+}
+
+function updateScore() {
+  document.getElementById('sc').innerHTML = '<span style="color:#a8d4a8">+' + good.length + '</span> <span style="color:#d4a8a8">-' + bad.length + '</span>';
+}
+
+function reveal() {
+  document.getElementById('ans').className = 'ans';
+  document.getElementById('checks').className = 'checks';
+  document.getElementById('sbtn').className = 'sbtn hide';
+  document.getElementById('hint').style.display = 'none';
+}
+
+function mark(knew) {
+  if (marked) return;
+  marked = true;
+  var q = queue[cur];
+  var k;
+  if (knew) {
+    bad = bad.filter(function(b){ return b.num !== q.num; });
+    var f = false;
+    for (k = 0; k < good.length; k++) { if (good[k].num === q.num) f = true; }
+    if (!f) good.push(q);
+  } else {
+    good = good.filter(function(g){ return g.num !== q.num; });
+    var f2 = false;
+    for (k = 0; k < bad.length; k++) { if (bad[k].num === q.num) f2 = true; }
+    if (!f2) bad.push(q);
+  }
+  updateScore();
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').textContent = (cur + 1 < queue.length) ? 'Следующий' : 'Завершить';
+  document.getElementById('nbtn').className = 'nbtn';
+}
+
+function next() {
+  cur++;
+  show();
+}
+
+function showResults() {
+  document.getElementById('study').className = 'hide';
+  document.getElementById('results').className = '';
+  document.getElementById('t0').className = 'tab';
+  document.getElementById('t1').className = 'tab active';
+  var pct = Math.round(good.length / questions.length * 100);
+  document.getElementById('bigsc').textContent = good.length + ' / ' + questions.length;
+  document.getElementById('subsc').textContent = pct + '% знаете';
+  var m;
+  if (pct >= 90) m = 'Отлично! Готов к экзамену!';
+  else if (pct >= 70) m = 'Хорошо! Повторите слабые.';
+  else if (pct >= 50) m = 'Ещё нужно поработать.';
+  else m = 'Повторите материал.';
+  document.getElementById('msgsc').textContent = m;
+  var i, h;
+  if (bad.length > 0) {
+    document.getElementById('badsec').className = '';
+    document.getElementById('badtitle').textContent = 'Не знал: ' + bad.length + ' (нажмите чтобы перейти)';
+    h = '';
+    for (i = 0; i < bad.length; i++) {
+      h += '<div class="ri ri-bad" onclick="jump(\'' + bad[i].num + '\')">[' + bad[i].num + '] ' + bad[i].title + '</div>';
+    }
+    document.getElementById('badlist').innerHTML = h;
+    document.getElementById('repbtn').className = 'ab ab-rep';
+  } else {
+    document.getElementById('badsec').className = 'hide';
+    document.getElementById('repbtn').className = 'ab ab-rep hide';
+  }
+  if (good.length > 0) {
+    document.getElementById('goodsec').className = '';
+    document.getElementById('goodtitle').textContent = 'Знал: ' + good.length;
+    h = '';
+    for (i = 0; i < good.length; i++) {
+      h += '<div class="ri ri-good">[' + good[i].num + '] ' + good[i].title + '</div>';
+    }
+    document.getElementById('goodlist').innerHTML = h;
+  } else {
+    document.getElementById('goodsec').className = 'hide';
+  }
+}
+
+function jump(num) {
+  var idx = -1;
+  for (var i = 0; i < questions.length; i++) { if (questions[i].num === num) idx = i; }
+  if (idx < 0) return;
+  queue = questions.slice();
+  weak = false;
+  cur = idx;
+  marked = false;
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  show();
+}
+
+function doRepeat() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(true);
+}
+
+function doAll() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(false);
+}
+
+function goStudy() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+}
+
+function goStats() {
+  showResults();
+}
+
+startQuiz(false);
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТГП: Вопросы 81-106</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,sans-serif;background:#1a1f2e;color:#e8e0d0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.wrap{width:100%;max-width:460px}
+.range-label{font-size:11px;color:#4a5570;text-align:center;margin-bottom:14px;letter-spacing:.05em}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{flex:1;padding:10px;border-radius:10px;border:1.5px solid #3a4460;background:#242b3d;color:#7a8aaa;font-size:13px;font-weight:600;cursor:pointer;text-align:center}
+.tab.active{background:#c5a05a;border-color:#c5a05a;color:#1a1f2e}
+.hide{display:none}
+#bar-wrap{width:100%;height:4px;background:#2a3040;border-radius:2px;margin-bottom:16px;overflow:hidden}
+#bar{height:100%;background:#c5a05a;transition:width .4s}
+.head{display:flex;justify-content:space-between;margin-bottom:12px}
+.qn{font-size:12px;color:#7a8aaa}
+.sc{font-size:13px}
+.badge{display:inline-block;background:#2a2010;border:1px solid #c5a05a66;color:#c5a05a;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.title{font-size:19px;font-weight:bold;line-height:1.45;margin-bottom:16px;min-height:50px}
+.plan{background:#1e2535;border:1px solid #3a4460;border-radius:12px;padding:14px;margin-bottom:14px}
+.plan-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7a8aaa;margin-bottom:10px}
+.pi{font-size:14px;color:#b0c4e0;line-height:1.6;padding:4px 0;border-bottom:1px solid #262f42}
+.pi:last-child{border-bottom:none}
+.hint{font-size:12px;color:#4a5570;text-align:center;margin-bottom:12px}
+.sbtn{width:100%;padding:14px;border-radius:12px;background:#242b3d;border:1.5px solid #c5a05a66;color:#c5a05a;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:14px}
+.ans{background:#1b2b1b;border:1px solid #3a5a3a;border-radius:12px;padding:16px;margin-bottom:14px}
+.ans-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a9a6a;margin-bottom:10px}
+.ans-txt{font-size:13px;line-height:1.65;color:#c0e0c0;white-space:pre-wrap}
+.checks{display:flex;gap:10px;margin-bottom:14px}
+.cb{flex:1;padding:14px;border-radius:12px;font-size:15px;font-weight:bold;cursor:pointer;border:1.5px solid}
+.yes{background:#1e3a1e;color:#a8d4a8;border-color:#4a9a4a}
+.no{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.nbtn{width:100%;padding:14px;border-radius:12px;background:#c5a05a;border:none;color:#1a1f2e;font-size:15px;font-weight:bold;cursor:pointer}
+.banner{background:#2a2010;border:1px solid #c5a05a44;border-radius:10px;padding:10px;margin-bottom:14px;font-size:13px;color:#c5a05a;text-align:center}
+.bigsc{font-size:48px;font-weight:bold;color:#c5a05a;text-align:center;margin-bottom:6px}
+.subsc{font-size:15px;text-align:center;margin-bottom:4px}
+.msgsc{font-size:13px;color:#7a8aaa;text-align:center;margin-bottom:20px}
+.rt{font-size:12px;text-transform:uppercase;padding:8px 12px;border-radius:8px;margin-bottom:10px;margin-top:16px}
+.rt-bad{background:#3a1e1e;color:#d4a8a8}
+.rt-good{background:#1e3a1e;color:#a8d4a8}
+.ri{font-size:13px;padding:8px 12px;border-radius:8px;margin-bottom:6px;line-height:1.4}
+.ri-bad{background:#2e1a1a;color:#d4a8a8;border:1px solid #4a2a2a;cursor:pointer}
+.ri-good{background:#1a2e1a;color:#a8d4a8;border:1px solid #2a4a2a}
+.acts{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.ab{flex:1;padding:13px;border-radius:12px;border:1.5px solid;font-size:14px;font-weight:bold;cursor:pointer;min-width:120px}
+.ab-rep{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.ab-all{background:#1e2535;color:#7a8aaa;border-color:#3a4460}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="range-label">Вопросы 81-106: реализация права, юридический процесс, ответственность, законность</div>
+<div class="tabs">
+  <div class="tab active" id="t0" onclick="goStudy()">Учить</div>
+  <div class="tab" id="t1" onclick="goStats()">Статистика</div>
+</div>
+
+<div id="study">
+  <div class="banner hide" id="banner"></div>
+  <div id="bar-wrap"><div id="bar"></div></div>
+  <div class="head"><div class="qn" id="qn"></div><div class="sc" id="sc"></div></div>
+  <div class="badge" id="badge"></div>
+  <div class="title" id="title"></div>
+  <div class="plan">
+    <div class="plan-lbl">Что нужно написать на экзамене</div>
+    <div id="plan"></div>
+  </div>
+  <div class="hint" id="hint">Прочитайте план, ответьте устно, проверьте</div>
+  <button class="sbtn" id="sbtn" onclick="reveal()">Показать полный ответ</button>
+  <div class="ans hide" id="ans">
+    <div class="ans-lbl">Полный ответ из документа</div>
+    <div class="ans-txt" id="ans-txt"></div>
+  </div>
+  <div class="checks hide" id="checks">
+    <button class="cb yes" onclick="mark(1)">Знал</button>
+    <button class="cb no" onclick="mark(0)">Не знал</button>
+  </div>
+  <button class="nbtn hide" id="nbtn" onclick="next()"></button>
+</div>
+
+<div id="results" class="hide">
+  <div class="bigsc" id="bigsc"></div>
+  <div class="subsc" id="subsc"></div>
+  <div class="msgsc" id="msgsc"></div>
+  <div id="badsec" class="hide">
+    <div class="rt rt-bad" id="badtitle"></div>
+    <div id="badlist"></div>
+  </div>
+  <div id="goodsec" class="hide">
+    <div class="rt rt-good" id="goodtitle"></div>
+    <div id="goodlist"></div>
+  </div>
+  <div class="acts">
+    <button class="ab ab-rep hide" id="repbtn" onclick="doRepeat()">Повторить слабые</button>
+    <button class="ab ab-all" onclick="doAll()">Все вопросы этого файла</button>
+  </div>
+</div>
+</div>
+
+<script>
+var questions=[{"num": "81", "title": "Фактический состав. Юридические презумпции и фикции", "answer": "Фактический состав — совокупность нескольких юридических фактов, необходимых для возникновения правоотношения.\n\nЮридическая презумпция — предположение, которое признается законом истинным, пока не доказано обратное.\n\nПример: знание закона всеми гражданами.\n\nЮридическая фикция — признание существующего того, чего в действительности может не быть."}, {"num": "82", "title": "Реализация права", "answer": "Реализация права — осуществление правовых норм в поведении людей.\n\nФормы:\n\n• соблюдение — выполнение запретов;\n\n• исполнение — выполнение обязанностей;\n\n• использование — осуществление своих прав;\n\n• применение — деятельность органов власти по реализации права."}, {"num": "83", "title": "Применение права", "answer": "Применение права — деятельность государственных органов по решению конкретных юридических дел.\n\nСубъекты:\n\n• суды;\n\n• органы власти;\n\n• должностные лица.\n\nСтадии:\n\n\t1.\tустановление фактов;\n\n\t2.\tвыбор нормы права;\n\n\t3.\tпринятие решения;\n\n\t4.\tоформление акта."}, {"num": "84", "title": "Акты применения права", "answer": "Акт применения права — официальное решение государственного органа по конкретному делу.\n\nПризнаки:\n\n• принимается компетентным органом;\n\n• обязателен для исполнения;\n\n• относится к конкретным лицам.\n\nПримеры:\n\n• судебное решение;\n\n• приказ;\n\n• приговор."}, {"num": "85", "title": "Пробелы в праве", "answer": "Пробел в праве — отсутствие нормы, необходимой для регулирования отношения.\n\nСпособы решения:\n\nАналогия закона — применение нормы, регулирующей похожие отношения.\n\nАналогия права — решение на основе общих принципов права."}, {"num": "86", "title": "Юридические коллизии", "answer": "Юридическая коллизия — противоречие между правовыми нормами.\n\nСпособы разрешения:\n\n• применяется более высокая по юридической силе норма;\n\n• действует более новая норма;\n\n• применяется специальная норма."}, {"num": "87", "title": "Толкование норм права", "answer": "Толкование права — выяснение и объяснение смысла правовых норм.\n\nВиды:\n\nПо субъекту:\n\n• официальное;\n\n• неофициальное.\n\nПо способу:\n\n• грамматическое;\n\n• логическое;\n\n• системное;\n\n• историческое."}, {"num": "88", "title": "Механизм правового регулирования", "answer": "Механизм правового регулирования — система средств, с помощью которых право воздействует на общество.\n\nЭлементы:\n\n• нормы права;\n\n• правоотношения;\n\n• акты реализации права;\n\n• юридическая ответственность."}, {"num": "89", "title": "Правовые стимулы и ограничения", "answer": "Правовые стимулы — средства, которые поощряют полезное поведение.\n\nПримеры:\n\n• льготы;\n\n• награды;\n\n• преимущества.\n\nПравовые ограничения — средства, которые сдерживают нежелательное поведение.\n\nПримеры:\n\n• запреты;\n\n• обязанности;\n\n• наказания."}, {"num": "90", "title": "Юридический процесс и правовая процедура", "answer": "Юридический процесс — порядок деятельности государственных органов по решению юридических дел.\n\nПравовая процедура — установленная законом последовательность действий.\n\nРазница:\n\n• процесс связан с решением юридических вопросов;\n\n• процедура — общий порядок действий."}, {"num": "91", "title": "Виды юридического процесса и правовых процедур", "answer": "Виды юридического процесса:\n\n• гражданский процесс — рассмотрение гражданских дел;\n\n• уголовный процесс — расследование и рассмотрение преступлений;\n\n• административный процесс — рассмотрение дел об административных нарушениях;\n\n• конституционный процесс — проверка соответствия законов Конституции."}, {"num": "92", "title": "Стадии юридического процесса", "answer": "Основные стадии:\n\n\t1.\tвозбуждение дела;\n\n\t2.\tподготовка материалов;\n\n\t3.\tрассмотрение дела;\n\n\t4.\tпринятие решения;\n\n\t5.\tисполнение решения."}, {"num": "93", "title": "Правомерное поведение", "answer": "Правомерное поведение — поведение, соответствующее нормам права.\n\nВиды:\n\n• социально активное — человек добровольно соблюдает право;\n\n• обычное — соблюдение закона без особых размышлений;\n\n• пассивное — человек не нарушает право, но не проявляет активности;\n\n• маргинальное — соблюдение закона из-за страха наказания."}, {"num": "94", "title": "Правонарушение: понятие и виды", "answer": "Правонарушение — виновное противоправное деяние, за которое предусмотрена юридическая ответственность.\n\nПризнаки:\n\n• противоправность;\n\n• вина;\n\n• вред обществу;\n\n• наказуемость.\n\nВиды:\n\n• преступления;\n\n• проступки."}, {"num": "95", "title": "Состав правонарушения", "answer": "Состав правонарушения включает:\n\n\t1.\tОбъект — общественные отношения, которым причинен вред.\n\n\t2.\tОбъективная сторона — действие, последствия, причинная связь.\n\n\t3.\tСубъект — лицо, совершившее нарушение.\n\n\t4.\tСубъективная сторона — вина, мотив, цель."}, {"num": "96", "title": "Государственное принуждение", "answer": "Государственное принуждение — воздействие государства на людей для соблюдения закона.\n\nПризнаки:\n\n• осуществляется государством;\n\n• основано на законе;\n\n• применяется в установленном порядке."}, {"num": "97", "title": "Виды государственного принуждения", "answer": "Основные виды:\n\n• предупредительные меры — предотвращение нарушений;\n\n• меры пресечения — прекращение незаконных действий;\n\n• юридическая ответственность — наказание за нарушение;\n\n• восстановительные меры — восстановление нарушенного права."}, {"num": "98", "title": "Юридическая ответственность", "answer": "Юридическая ответственность — применение мер государственного воздействия за совершенное правонарушение.\n\nВиды:\n\n• уголовная;\n\n• административная;\n\n• гражданско-правовая;\n\n• дисциплинарная.\n\nОсобенности:\n\n• наступает только за нарушение закона;\n\n• связана с наказанием или обязанностями."}, {"num": "99", "title": "Цели, функции и принципы юридической ответственности", "answer": "Цели:\n\n• наказание нарушителя;\n\n• восстановление справедливости;\n\n• предупреждение новых нарушений.\n\nФункции:\n\n• карательная;\n\n• воспитательная;\n\n• предупредительная.\n\nПринципы:\n\n• законность;\n\n• справедливость;\n\n• вина;\n\n• индивидуальность наказания."}, {"num": "100", "title": "Обстоятельства, исключающие ответственность", "answer": "Это ситуации, когда деяние не считается правонарушением.\n\nПримеры:\n\n• необходимая оборона;\n\n• крайняя необходимость;\n\n• исполнение закона;\n\n• задержание правонарушителя."}, {"num": "101", "title": "Правосознание: понятие, структура, виды", "answer": "Правосознание — отношение людей к праву, законам и правовым явлениям.\n\nСтруктура:\n\n• правовая идеология — знания и взгляды на право;\n\n• правовая психология — чувства и отношение к праву.\n\nВиды:\n\n• индивидуальное;\n\n• групповое;\n\n• общественное."}, {"num": "102", "title": "Правовая культура", "answer": "Правовая культура — уровень развития правовых знаний, отношения к праву и соблюдения законов.\n\nСтруктура:\n\n• знание права;\n\n• уважение к закону;\n\n• правомерное поведение;\n\n• развитие законодательства."}, {"num": "103", "title": "Правовой нигилизм и правовой идеализм", "answer": "Правовой нигилизм — отрицательное отношение к праву и законам.\n\nФормы:\n\n• нарушение законов;\n\n• неуважение к правосудию.\n\nПравовой идеализм — чрезмерная вера в возможности права, когда считается, что один закон может решить все проблемы."}, {"num": "104", "title": "Законность: понятие и принципы", "answer": "Законность — точное соблюдение законов всеми участниками общества.\n\nПринципы:\n\n• верховенство закона;\n\n• равенство всех перед законом;\n\n• обязательность соблюдения норм;\n\n• защита прав граждан."}, {"num": "105", "title": "Правопорядок", "answer": "Правопорядок — состояние общественных отношений, основанное на соблюдении права.\n\nСвязь:\n\n• законность — требование соблюдать законы;\n\n• правопорядок — результат соблюдения законов.\n\nОбщественный порядок шире, потому что включает не только правовые нормы, но и моральные правила."}, {"num": "106", "title": "Гарантии законности и правопорядка", "answer": "Гарантии законности — условия и средства, обеспечивающие соблюдение права.\n\nВиды:\n\nЭкономические:\n\n• стабильная экономика.\n\nПолитические:\n\n• демократия;\n\n• деятельность органов власти.\n\nЮридические:\n\n• эффективные законы;\n\n• работа судов и правоохранительных органов.\n\nСоциальные:\n\n• правовое воспитание граждан."}];
+var plans={"81": ["1. Фактический состав — совокупность юридических фактов, необходимых для правовых последствий", "2. Юридическая презумпция — предположение, признаваемое истинным до доказательства обратного", "3. Юридическая фикция — заведомо ложное положение, признаваемое истинным для правовых целей"], "82": ["1. Реализация права — претворение правовых норм в реальное поведение субъектов", "2. Формы: соблюдение (запреты), исполнение (обязанности), использование (права)", "3. Применение права как особая форма реализации через властные органы"], "83": ["1. Применение права — властная деятельность компетентных органов по реализации норм", "2. Стадии: установление фактов, выбор нормы, принятие решения", "3. Особенность — осуществляется специально уполномоченными субъектами (суд, госорганы)"], "84": ["1. Акт применения права — индивидуальный правовой документ, принятый компетентным органом", "2. Признаки: индивидуальный характер, обязательность для конкретных лиц", "3. Примеры: судебное решение, приказ о назначении, постановление о наказании"], "85": ["1. Пробел в праве — отсутствие нормы, регулирующей конкретное общественное отношение", "2. Способы устранения: правотворчество (создание новой нормы)", "3. Способы преодоления: аналогия закона и аналогия права"], "86": ["1. Юридическая коллизия — противоречие между правовыми нормами", "2. Виды коллизий: между актами разной юридической силы, между старым и новым законом", "3. Способы разрешения: иерархия актов, принцип позднейшего закона, специальная норма"], "87": ["1. Толкование норм права — разъяснение смысла и содержания правовых норм", "2. Виды по субъектам: официальное (обязательное) и неофициальное (доктринальное)", "3. Способы толкования: грамматическое, систематическое, историческое, логическое"], "88": ["1. Механизм правового регулирования — система средств, обеспечивающих действие права", "2. Элементы: норма права, правоотношение, акты реализации права", "3. Цель механизма — упорядочивание общественных отношений правовыми средствами"], "89": ["1. Правовые стимулы — побуждения к правомерному и социально полезному поведению", "2. Правовые ограничения — установление границ возможного поведения", "3. Примеры стимулов: льготы, поощрения; примеры ограничений: запреты, обязанности"], "90": ["1. Юридический процесс — нормативно установленный порядок деятельности по реализации права", "2. Правовая процедура — конкретный порядок совершения юридически значимых действий", "3. Соотношение — процесс шире процедуры, включает несколько процедур"], "91": ["1. Виды юридического процесса: правотворческий, правоприменительный, судебный", "2. Гражданский, уголовный, административный процесс как виды судебного процесса", "3. Правовые процедуры в различных сферах деятельности государства"], "92": ["1. Стадии юридического процесса — последовательные этапы процессуальной деятельности", "2. Возбуждение дела, рассмотрение, принятие решения, исполнение решения", "3. Каждая стадия имеет собственные цели и процессуальные действия"], "93": ["1. Правомерное поведение — поведение, соответствующее требованиям норм права", "2. Виды: социально активное, привычное, конформистское, маргинальное поведение", "3. Значение — основа правопорядка и стабильности общественных отношений"], "94": ["1. Правонарушение — виновное противоправное деяние, причиняющее вред", "2. Виды: преступления (общественно опасные) и проступки (менее опасные)", "3. Проступки: административные, гражданско-правовые, дисциплинарные"], "95": ["1. Состав правонарушения — совокупность элементов, характеризующих правонарушение", "2. Объект — то, на что направлено деяние; объективная сторона — само деяние", "3. Субъект — лицо, совершившее деяние; субъективная сторона — вина (умысел/неосторожность)"], "96": ["1. Государственное принуждение — применение государством мер воздействия к нарушителям", "2. Признаки: осуществляется специальными органами, на основе закона", "3. Цель — обеспечение правопорядка и защита прав граждан"], "97": ["1. Виды государственного принуждения: меры юридической ответственности", "2. Меры защиты (восстановление нарушенных прав)", "3. Меры пресечения и предупредительные меры (профилактика правонарушений)"], "98": ["1. Юридическая ответственность — применение мер государственного принуждения за правонарушение", "2. Виды: уголовная, административная, гражданско-правовая, дисциплинарная", "3. Основание — совершение правонарушения (наличие состава)"], "99": ["1. Цели ответственности: наказание, восстановление прав, предупреждение правонарушений", "2. Функции: карательная, восстановительная, воспитательная, превентивная", "3. Принципы: законность, справедливость, неотвратимость, индивидуализация наказания"], "100": ["1. Обстоятельства, исключающие ответственность — ситуации, освобождающие от наказания", "2. Необходимая оборона, крайняя необходимость как основания исключения вины", "3. Невменяемость, малозначительность деяния, истечение срока давности"], "101": ["1. Правосознание — совокупность представлений и взглядов людей о праве", "2. Структура: правовая идеология (знания) и правовая психология (чувства, эмоции)", "3. Виды: индивидуальное, групповое, общественное правосознание"], "102": ["1. Правовая культура — уровень развития правосознания и правовой деятельности общества", "2. Элементы: знание права, уважение к закону, навыки правомерного поведения", "3. Виды: правовая культура общества, группы, личности"], "103": ["1. Правовой нигилизм — негативное, пренебрежительное отношение к праву", "2. Проявления: неуважение к закону, правовой инфантилизм, цинизм", "3. Правовой идеализм — переоценка роли права, идеализация его возможностей"], "104": ["1. Законность — точное и неукоснительное соблюдение законов всеми субъектами", "2. Принципы: единство законности, всеобщность, гарантированность прав", "3. Верховенство закона, неотвратимость ответственности за нарушения"], "105": ["1. Правопорядок — состояние общественных отношений, основанное на соблюдении норм права", "2. Результат действия законности и реализации правовых норм", "3. Признаки: упорядоченность, стабильность, защищённость прав субъектов"], "106": ["1. Гарантии законности — условия и средства обеспечения соблюдения законов", "2. Общие гарантии: экономические, политические, идеологические условия", "3. Специальные (юридические) гарантии: контроль, надзор, юридическая ответственность"]};
+
+var queue = [];
+var cur = 0;
+var good = [];
+var bad = [];
+var marked = false;
+var weak = false;
+var TOTAL = 106;
+
+function startQuiz(isWeak) {
+  weak = isWeak;
+  if (isWeak) {
+    queue = [];
+    for (var i = 0; i < questions.length; i++) {
+      for (var j = 0; j < bad.length; j++) {
+        if (bad[j].num === questions[i].num) { queue.push(questions[i]); break; }
+      }
+    }
+  } else {
+    queue = questions.slice();
+    good = [];
+    bad = [];
+  }
+  if (queue.length === 0) return;
+  cur = 0;
+  marked = false;
+  show();
+}
+
+function show() {
+  if (cur >= queue.length) { showResults(); return; }
+  var q = queue[cur];
+  document.getElementById('bar').style.width = (cur / queue.length * 100) + '%';
+  document.getElementById('qn').textContent = 'Вопрос ' + (cur + 1) + ' из ' + queue.length;
+  document.getElementById('badge').textContent = 'Вопрос ' + q.num + ' из ' + TOTAL;
+  document.getElementById('title').textContent = q.title;
+  document.getElementById('ans-txt').textContent = q.answer;
+  var plan = plans[q.num] || [q.title];
+  var h = '';
+  for (var i = 0; i < plan.length; i++) { h += '<div class="pi">' + plan[i] + '</div>'; }
+  document.getElementById('plan').innerHTML = h;
+  document.getElementById('ans').className = 'ans hide';
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').className = 'nbtn hide';
+  document.getElementById('sbtn').className = 'sbtn';
+  document.getElementById('hint').style.display = 'block';
+  var b = document.getElementById('banner');
+  if (weak) { b.className = 'banner'; b.textContent = 'Повтор слабых: ' + queue.length + ' вопросов'; }
+  else { b.className = 'banner hide'; }
+  updateScore();
+  marked = false;
+}
+
+function updateScore() {
+  document.getElementById('sc').innerHTML = '<span style="color:#a8d4a8">+' + good.length + '</span> <span style="color:#d4a8a8">-' + bad.length + '</span>';
+}
+
+function reveal() {
+  document.getElementById('ans').className = 'ans';
+  document.getElementById('checks').className = 'checks';
+  document.getElementById('sbtn').className = 'sbtn hide';
+  document.getElementById('hint').style.display = 'none';
+}
+
+function mark(knew) {
+  if (marked) return;
+  marked = true;
+  var q = queue[cur];
+  var k;
+  if (knew) {
+    bad = bad.filter(function(b){ return b.num !== q.num; });
+    var f = false;
+    for (k = 0; k < good.length; k++) { if (good[k].num === q.num) f = true; }
+    if (!f) good.push(q);
+  } else {
+    good = good.filter(function(g){ return g.num !== q.num; });
+    var f2 = false;
+    for (k = 0; k < bad.length; k++) { if (bad[k].num === q.num) f2 = true; }
+    if (!f2) bad.push(q);
+  }
+  updateScore();
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').textContent = (cur + 1 < queue.length) ? 'Следующий' : 'Завершить';
+  document.getElementById('nbtn').className = 'nbtn';
+}
+
+function next() {
+  cur++;
+  show();
+}
+
+function showResults() {
+  document.getElementById('study').className = 'hide';
+  document.getElementById('results').className = '';
+  document.getElementById('t0').className = 'tab';
+  document.getElementById('t1').className = 'tab active';
+  var pct = Math.round(good.length / questions.length * 100);
+  document.getElementById('bigsc').textContent = good.length + ' / ' + questions.length;
+  document.getElementById('subsc').textContent = pct + '% знаете';
+  var m;
+  if (pct >= 90) m = 'Отлично! Готов к экзамену!';
+  else if (pct >= 70) m = 'Хорошо! Повторите слабые.';
+  else if (pct >= 50) m = 'Ещё нужно поработать.';
+  else m = 'Повторите материал.';
+  document.getElementById('msgsc').textContent = m;
+  var i, h;
+  if (bad.length > 0) {
+    document.getElementById('badsec').className = '';
+    document.getElementById('badtitle').textContent = 'Не знал: ' + bad.length + ' (нажмите чтобы перейти)';
+    h = '';
+    for (i = 0; i < bad.length; i++) {
+      h += '<div class="ri ri-bad" onclick="jump(\'' + bad[i].num + '\')">[' + bad[i].num + '] ' + bad[i].title + '</div>';
+    }
+    document.getElementById('badlist').innerHTML = h;
+    document.getElementById('repbtn').className = 'ab ab-rep';
+  } else {
+    document.getElementById('badsec').className = 'hide';
+    document.getElementById('repbtn').className = 'ab ab-rep hide';
+  }
+  if (good.length > 0) {
+    document.getElementById('goodsec').className = '';
+    document.getElementById('goodtitle').textContent = 'Знал: ' + good.length;
+    h = '';
+    for (i = 0; i < good.length; i++) {
+      h += '<div class="ri ri-good">[' + good[i].num + '] ' + good[i].title + '</div>';
+    }
+    document.getElementById('goodlist').innerHTML = h;
+  } else {
+    document.getElementById('goodsec').className = 'hide';
+  }
+}
+
+function jump(num) {
+  var idx = -1;
+  for (var i = 0; i < questions.length; i++) { if (questions[i].num === num) idx = i; }
+  if (idx < 0) return;
+  queue = questions.slice();
+  weak = false;
+  cur = idx;
+  marked = false;
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  show();
+}
+
+function doRepeat() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(true);
+}
+
+function doAll() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(false);
+}
+
+function goStudy() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+}
+
+function goStats() {
+  showResults();
+}
+
+startQuiz(false);
+</script>
+</body>
+</html>

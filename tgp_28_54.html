@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ТГП: Вопросы 28-54</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,sans-serif;background:#1a1f2e;color:#e8e0d0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px}
+.wrap{width:100%;max-width:460px}
+.range-label{font-size:11px;color:#4a5570;text-align:center;margin-bottom:14px;letter-spacing:.05em}
+.tabs{display:flex;gap:8px;margin-bottom:20px}
+.tab{flex:1;padding:10px;border-radius:10px;border:1.5px solid #3a4460;background:#242b3d;color:#7a8aaa;font-size:13px;font-weight:600;cursor:pointer;text-align:center}
+.tab.active{background:#c5a05a;border-color:#c5a05a;color:#1a1f2e}
+.hide{display:none}
+#bar-wrap{width:100%;height:4px;background:#2a3040;border-radius:2px;margin-bottom:16px;overflow:hidden}
+#bar{height:100%;background:#c5a05a;transition:width .4s}
+.head{display:flex;justify-content:space-between;margin-bottom:12px}
+.qn{font-size:12px;color:#7a8aaa}
+.sc{font-size:13px}
+.badge{display:inline-block;background:#2a2010;border:1px solid #c5a05a66;color:#c5a05a;font-size:11px;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.title{font-size:19px;font-weight:bold;line-height:1.45;margin-bottom:16px;min-height:50px}
+.plan{background:#1e2535;border:1px solid #3a4460;border-radius:12px;padding:14px;margin-bottom:14px}
+.plan-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7a8aaa;margin-bottom:10px}
+.pi{font-size:14px;color:#b0c4e0;line-height:1.6;padding:4px 0;border-bottom:1px solid #262f42}
+.pi:last-child{border-bottom:none}
+.hint{font-size:12px;color:#4a5570;text-align:center;margin-bottom:12px}
+.sbtn{width:100%;padding:14px;border-radius:12px;background:#242b3d;border:1.5px solid #c5a05a66;color:#c5a05a;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:14px}
+.ans{background:#1b2b1b;border:1px solid #3a5a3a;border-radius:12px;padding:16px;margin-bottom:14px}
+.ans-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6a9a6a;margin-bottom:10px}
+.ans-txt{font-size:13px;line-height:1.65;color:#c0e0c0;white-space:pre-wrap}
+.checks{display:flex;gap:10px;margin-bottom:14px}
+.cb{flex:1;padding:14px;border-radius:12px;font-size:15px;font-weight:bold;cursor:pointer;border:1.5px solid}
+.yes{background:#1e3a1e;color:#a8d4a8;border-color:#4a9a4a}
+.no{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.nbtn{width:100%;padding:14px;border-radius:12px;background:#c5a05a;border:none;color:#1a1f2e;font-size:15px;font-weight:bold;cursor:pointer}
+.banner{background:#2a2010;border:1px solid #c5a05a44;border-radius:10px;padding:10px;margin-bottom:14px;font-size:13px;color:#c5a05a;text-align:center}
+.bigsc{font-size:48px;font-weight:bold;color:#c5a05a;text-align:center;margin-bottom:6px}
+.subsc{font-size:15px;text-align:center;margin-bottom:4px}
+.msgsc{font-size:13px;color:#7a8aaa;text-align:center;margin-bottom:20px}
+.rt{font-size:12px;text-transform:uppercase;padding:8px 12px;border-radius:8px;margin-bottom:10px;margin-top:16px}
+.rt-bad{background:#3a1e1e;color:#d4a8a8}
+.rt-good{background:#1e3a1e;color:#a8d4a8}
+.ri{font-size:13px;padding:8px 12px;border-radius:8px;margin-bottom:6px;line-height:1.4}
+.ri-bad{background:#2e1a1a;color:#d4a8a8;border:1px solid #4a2a2a;cursor:pointer}
+.ri-good{background:#1a2e1a;color:#a8d4a8;border:1px solid #2a4a2a}
+.acts{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.ab{flex:1;padding:13px;border-radius:12px;border:1.5px solid;font-size:14px;font-weight:bold;cursor:pointer;min-width:120px}
+.ab-rep{background:#3a1e1e;color:#d4a8a8;border-color:#9a4a4a}
+.ab-all{background:#1e2535;color:#7a8aaa;border-color:#3a4460}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="range-label">Вопросы 28-54: механизм государства, гражданское общество, право, нормы права</div>
+<div class="tabs">
+  <div class="tab active" id="t0" onclick="goStudy()">Учить</div>
+  <div class="tab" id="t1" onclick="goStats()">Статистика</div>
+</div>
+
+<div id="study">
+  <div class="banner hide" id="banner"></div>
+  <div id="bar-wrap"><div id="bar"></div></div>
+  <div class="head"><div class="qn" id="qn"></div><div class="sc" id="sc"></div></div>
+  <div class="badge" id="badge"></div>
+  <div class="title" id="title"></div>
+  <div class="plan">
+    <div class="plan-lbl">Что нужно написать на экзамене</div>
+    <div id="plan"></div>
+  </div>
+  <div class="hint" id="hint">Прочитайте план, ответьте устно, проверьте</div>
+  <button class="sbtn" id="sbtn" onclick="reveal()">Показать полный ответ</button>
+  <div class="ans hide" id="ans">
+    <div class="ans-lbl">Полный ответ из документа</div>
+    <div class="ans-txt" id="ans-txt"></div>
+  </div>
+  <div class="checks hide" id="checks">
+    <button class="cb yes" onclick="mark(1)">Знал</button>
+    <button class="cb no" onclick="mark(0)">Не знал</button>
+  </div>
+  <button class="nbtn hide" id="nbtn" onclick="next()"></button>
+</div>
+
+<div id="results" class="hide">
+  <div class="bigsc" id="bigsc"></div>
+  <div class="subsc" id="subsc"></div>
+  <div class="msgsc" id="msgsc"></div>
+  <div id="badsec" class="hide">
+    <div class="rt rt-bad" id="badtitle"></div>
+    <div id="badlist"></div>
+  </div>
+  <div id="goodsec" class="hide">
+    <div class="rt rt-good" id="goodtitle"></div>
+    <div id="goodlist"></div>
+  </div>
+  <div class="acts">
+    <button class="ab ab-rep hide" id="repbtn" onclick="doRepeat()">Повторить слабые</button>
+    <button class="ab ab-all" onclick="doAll()">Все вопросы этого файла</button>
+  </div>
+</div>
+</div>
+
+<script>
+var questions=[{"num": "28", "title": "Принципы организации государственного аппарата", "answer": "Основные принципы:\n\n• законность;\n\n• разделение властей;\n\n• профессионализм;\n\n• ответственность;\n\n• открытость деятельности органов власти."}, {"num": "29", "title": "Разделение власти", "answer": "Разделение властей — принцип, по которому государственная власть делится на 3 ветви:\n\n\t1.\tЗаконодательная — принимает законы.\n\n\t2.\tИсполнительная — исполняет законы.\n\n\t3.\tСудебная — осуществляет правосудие.\n\nЦель — не допустить злоупотребления властью."}, {"num": "30", "title": "Органы государства: понятие и признаки", "answer": "Государственный орган — часть механизма государства, которая выполняет функции власти.\n\nПризнаки:\n\n• создан государством;\n\n• имеет полномочия;\n\n• действует от имени государства;\n\n• имеет определенную структуру;\n\n• принимает обязательные решения."}, {"num": "31", "title": "Виды органов государства", "answer": "Государственные органы классифицируются:\n\nПо ветвям власти:\n\n• законодательные;\n\n• исполнительные;\n\n• судебные.\n\nПо уровню:\n\n• федеральные;\n\n• региональные;\n\n• местные.\n\nПо способу формирования:\n\n• выборные;\n\n• назначаемые."}, {"num": "32", "title": "Органы законодательной власти", "answer": "Законодательная власть принимает законы.\n\nГлавный орган в России — Федеральное Собрание РФ.\n\nСостоит из:\n\n• Государственной Думы — принимает законы;\n\n• Совета Федерации — представляет интересы субъектов РФ."}, {"num": "33", "title": "Органы исполнительной власти", "answer": "Исполнительная власть обеспечивает выполнение законов.\n\nОсновные органы:\n\n• Правительство РФ;\n\n• министерства;\n\n• федеральные службы и ведомства.\n\nГлавная задача — управление государством и реализация законов."}, {"num": "34", "title": "Органы судебной власти", "answer": "Судебная власть осуществляет правосудие.\n\nПринципы:\n\n• независимость судов;\n\n• законность;\n\n• равенство всех перед судом.\n\nВиды судов:\n\n• Конституционный суд;\n\n• Верховный суд;\n\n• другие суды."}, {"num": "35", "title": "Государственные органы с особым статусом", "answer": "Это органы, которые имеют специальные полномочия.\n\nПримеры:\n\n• прокуратура;\n\n• Центральный банк;\n\n• избирательные комиссии.\n\nОни выполняют важные государственные функции."}, {"num": "36", "title": "Государственная служба и должность", "answer": "Государственная служба — профессиональная деятельность граждан по обеспечению работы государства.\n\nГосударственная должность — должность в государственном органе с установленными полномочиями.\n\nГосударственный служащий — лицо, выполняющее обязанности на государственной службе."}, {"num": "37", "title": "Государственные организации", "answer": "Государственные организации — учреждения и предприятия, созданные государством.\n\nВиды:\n\n• государственные учреждения (например, образовательные, медицинские);\n\n• государственные предприятия.\n\nОни выполняют общественно важные задачи."}, {"num": "38", "title": "Политическая система общества", "answer": "Политическая система — совокупность организаций и отношений, связанных с политической властью.\n\nЭлементы:\n\n• государство;\n\n• политические партии;\n\n• общественные организации;\n\n• политические нормы и отношения.\n\nФункции:\n\n• управление обществом;\n\n• выражение интересов граждан;\n\n• обеспечение порядка."}, {"num": "39", "title": "Роль государства и права в политической и экономической системах", "answer": "Государство управляет обществом и регулирует важные процессы.\n\nПраво устанавливает правила поведения.\n\nВ экономике право:\n\n• защищает собственность;\n\n• регулирует отношения;\n\n• устанавливает правила предпринимательства."}, {"num": "40", "title": "Государство и церковь", "answer": "Взаимоотношения государства и церкви зависят от формы государства.\n\nСветское государство — религия отделена от власти, все веры равны.\n\nТеократическое государство — религиозная власть влияет на управление государством."}, {"num": "41", "title": "История развития концепции гражданского общества", "answer": "Гражданское общество — это сфера отношений людей и организаций, независимая от государства.\n\nРазвитие идеи:\n\n• в древности появились идеи участия граждан в управлении;\n\n• в Новое время сформировалась идея самостоятельности общества;\n\n• современное понимание связано с защитой прав и свобод человека."}, {"num": "42", "title": "Гражданское общество: понятие и признаки", "answer": "Гражданское общество — это система самостоятельных общественных отношений и организаций.\n\nПризнаки:\n\n• наличие прав и свобод граждан;\n\n• независимость от государства;\n\n• добровольные объединения людей;\n\n• защита интересов личности.\n\nПринципы:\n\n• свобода;\n\n• равенство;\n\n• законность."}, {"num": "43", "title": "Структура гражданского общества", "answer": "Элементы гражданского общества:\n\n• семья;\n\n• общественные организации;\n\n• политические партии;\n\n• средства массовой информации;\n\n• профсоюзы;\n\n• бизнес;\n\n• религиозные объединения.\n\nОни выражают интересы граждан."}, {"num": "44", "title": "Правовое государство", "answer": "Правовое государство — государство, где власть ограничена правом и действует на основе закона.\n\nПринципы:\n\n• верховенство закона;\n\n• разделение властей;\n\n• защита прав и свобод человека;\n\n• ответственность государства перед гражданами."}, {"num": "45", "title": "Цифровое государство", "answer": "Цифровое государство — использование цифровых технологий для работы органов власти и предоставления услуг.\n\nОсновные направления:\n\n• электронные госуслуги;\n\n• цифровые документы;\n\n• электронное управление.\n\nПлюсы:\n\n• удобство;\n\n• скорость получения услуг;\n\n• доступность информации."}, {"num": "46", "title": "Понятие и признаки права", "answer": "Право — система общеобязательных норм, установленных и охраняемых государством.\n\nПризнаки:\n\n• обязательность;\n\n• формальная определенность;\n\n• связь с государством;\n\n• возможность государственного принуждения."}, {"num": "47", "title": "Сущность права", "answer": "Сущность права — его главные свойства и назначение.\n\nВ праве выделяют:\n\nКлассовое начало — выражение интересов определенных социальных групп.\n\nОбщесоциальное начало — защита порядка, справедливости и интересов общества."}, {"num": "48", "title": "Основные теории права", "answer": "Основные подходы:\n\nЕстественно-правовая теория — право связано с природными правами человека.\n\nПозитивистская теория — право создается государством.\n\nСоциологическая теория — право существует в реальных общественных отношениях."}, {"num": "49", "title": "Дискуссионные аспекты правопонимания", "answer": "Главный вопрос — что считать правом.\n\nРазные подходы:\n\n• право как закон;\n\n• право как справедливость;\n\n• право как реальные отношения в обществе.\n\nЕдиного понимания права нет."}, {"num": "50", "title": "Функции права", "answer": "Функции права — основные направления его воздействия на общество.\n\nОсновные:\n\nРегулятивная — регулирует общественные отношения.\n\nОхранительная — защищает права и порядок.\n\nВоспитательная — формирует правовое поведение.\n\nИнформационная — сообщает правила поведения."}, {"num": "51", "title": "Принципы права", "answer": "Принципы права — основные идеи и правила, на которых строится право.\n\nОсновные принципы:\n\n• законность;\n\n• справедливость;\n\n• равенство всех перед законом;\n\n• гуманизм;\n\n• ответственность за вину."}, {"num": "52", "title": "Социальные нормы: понятие и виды", "answer": "Социальные нормы — правила поведения людей в обществе.\n\nВиды:\n\n• правовые — установлены государством;\n\n• моральные — основаны на представлениях о добре и зле;\n\n• обычаи — сложившиеся традиции;\n\n• религиозные — правила веры;\n\n• корпоративные — правила организаций."}, {"num": "53", "title": "Право и мораль", "answer": "Сходства:\n\n• регулируют поведение людей;\n\n• направлены на порядок в обществе.\n\nРазличия:\n\n• право устанавливает государство;\n\n• мораль формируется обществом;\n\n• за нарушение права возможна юридическая ответственность.\n\nОни взаимодействуют и влияют друг на друга."}, {"num": "54", "title": "Норма права: понятие и признаки", "answer": "Норма права — общеобязательное правило поведения, установленное государством.\n\nПризнаки:\n\n• обязательность;\n\n• официальное закрепление;\n\n• действует для всех;\n\n• охраняется государством."}];
+var plans={"28": ["1. Принципы организации государственного аппарата — основные начала его построения", "2. Разделение властей, законность, профессионализм государственных служащих", "3. Демократизм, гласность и подконтрольность деятельности аппарата"], "29": ["1. Разделение власти — распределение государственной власти между ветвями", "2. Законодательная власть — принятие законов", "3. Исполнительная власть — реализация законов и управление", "4. Судебная власть — разрешение споров и осуществление правосудия"], "30": ["1. Орган государства — структурное звено механизма государства, обладающее властными полномочиями", "2. Признаки: создаётся государством, действует от его имени, обладает компетенцией", "3. Финансируется из государственного бюджета, имеет правовой статус"], "31": ["1. Виды органов государства по принципу разделения властей: законодательные, исполнительные, судебные", "2. По порядку образования: избираемые и назначаемые органы", "3. По территории действия: федеральные и региональные органы власти"], "32": ["1. Органы законодательной власти — представительные органы, принимающие законы", "2. В России: Федеральное Собрание (Государственная Дума и Совет Федерации)", "3. Функции: законотворчество, контроль за исполнительной властью, утверждение бюджета"], "33": ["1. Органы исполнительной власти — реализуют законы и осуществляют государственное управление", "2. В России: Правительство РФ, федеральные министерства и службы", "3. Функции: исполнение законов, управление экономикой и социальной сферой"], "34": ["1. Органы судебной власти — осуществляют правосудие путём рассмотрения дел", "2. В России: Конституционный Суд, Верховный Суд, суды общей юрисдикции и арбитражные суды", "3. Принципы: независимость судей, состязательность, гласность судопроизводства"], "35": ["1. Государственные органы с особым статусом — не входят в классическую систему трёх ветвей власти", "2. Примеры: прокуратура, Центральный банк, Счётная палата", "3. Особенности: специальная компетенция, особый порядок формирования и подотчётности"], "36": ["1. Государственная служба — профессиональная деятельность по обеспечению полномочий государственных органов", "2. Государственная должность — учреждённая структурная единица государственного органа", "3. Принципы службы: законность, профессионализм, равный доступ граждан"], "37": ["1. Государственные организации — учреждения и предприятия, созданные государством", "2. Виды: государственные учреждения (образование, здравоохранение) и государственные предприятия", "3. Отличие от органов государства — не обладают властными полномочиями"], "38": ["1. Политическая система общества — совокупность институтов, осуществляющих политическую власть", "2. Элементы: государство, политические партии, общественные организации", "3. Функции: организация политической жизни, выражение интересов различных групп"], "39": ["1. Роль государства в политической системе — центральный институт власти и управления", "2. Роль права — регулятор экономических и политических отношений", "3. Взаимосвязь государства, права и экономики в современном обществе"], "40": ["1. Соотношение государства и церкви — модели взаимодействия", "2. Светское государство — отделение церкви от государства (как в РФ)", "3. Теократическое государство — церковь определяет государственную политику", "4. Государственная религия — церковь имеет официальный статус при светском государстве"], "41": ["1. История концепции гражданского общества — от античности до современности", "2. Развитие идеи в эпоху Просвещения (Локк, Гоббс, Руссо)", "3. Современное понимание гражданского общества как сферы самоорганизации граждан"], "42": ["1. Гражданское общество — сфера самоорганизации граждан вне государственного контроля", "2. Признаки: самостоятельность, добровольность объединений, защита прав и интересов", "3. Основа: частная собственность, свобода экономической деятельности"], "43": ["1. Структура гражданского общества: общественные организации, профсоюзы, СМИ", "2. Политические партии и движения как часть гражданского общества", "3. Семья, религиозные организации, экономические объединения граждан"], "44": ["1. Правовое государство — государство, ограниченное правом и законом", "2. Признаки: верховенство закона, разделение властей, защита прав человека", "3. Взаимная ответственность государства и личности перед законом"], "45": ["1. Цифровое государство — использование информационных технологий в управлении", "2. Электронное правительство, цифровые услуги для граждан", "3. Особенности: онлайн-взаимодействие, цифровизация документооборота и услуг"], "46": ["1. Право — система общеобязательных норм, установленных и охраняемых государством", "2. Признаки: общеобязательность, формальная определённость, системность", "3. Обеспеченность государственным принуждением, регулятивный характер"], "47": ["1. Сущность права — выражение воли общества или отдельных социальных групп", "2. Классовый подход — право выражает интересы господствующего класса", "3. Общесоциальный подход — право служит интересам всего общества"], "48": ["1. Естественно-правовая теория — право от природы, неотчуждаемые права человека", "2. Нормативистская теория — право как система норм, независимая от морали", "3. Историческая школа права — право складывается исторически в народном духе", "4. Социологическая теория — право в реальных правоотношениях, а не только в нормах"], "49": ["1. Дискуссионные аспекты правопонимания — споры о сущности права в науке", "2. Соотношение права и закона: тождественны или различны?", "3. Соотношение права и морали, право и справедливость"], "50": ["1. Регулятивная функция — упорядочивание общественных отношений", "2. Охранительная функция — защита от правонарушений", "3. Воспитательная функция — формирование правосознания граждан"], "51": ["1. Принципы права — основные идеи, на которых строится правовая система", "2. Общеправовые принципы: законность, справедливость, равенство", "3. Принципы гуманизма, демократизма, ответственности за виновные деяния"], "52": ["1. Социальные нормы — правила поведения в обществе (шире, чем право)", "2. Виды: правовые, моральные, религиозные, корпоративные нормы", "3. Обычаи и традиции как разновидность социальных норм"], "53": ["1. Право и мораль — взаимосвязанные, но различные регуляторы поведения", "2. Общее: оба регулируют поведение людей в обществе", "3. Различие: право обеспечивается государством, мораль — общественным мнением"], "54": ["1. Норма права — общеобязательное правило поведения, установленное государством", "2. Признаки: общеобязательность, формальная определённость, неоднократность применения", "3. Обеспечивается государственным принуждением"]};
+
+var queue = [];
+var cur = 0;
+var good = [];
+var bad = [];
+var marked = false;
+var weak = false;
+var TOTAL = 106;
+
+function startQuiz(isWeak) {
+  weak = isWeak;
+  if (isWeak) {
+    queue = [];
+    for (var i = 0; i < questions.length; i++) {
+      for (var j = 0; j < bad.length; j++) {
+        if (bad[j].num === questions[i].num) { queue.push(questions[i]); break; }
+      }
+    }
+  } else {
+    queue = questions.slice();
+    good = [];
+    bad = [];
+  }
+  if (queue.length === 0) return;
+  cur = 0;
+  marked = false;
+  show();
+}
+
+function show() {
+  if (cur >= queue.length) { showResults(); return; }
+  var q = queue[cur];
+  document.getElementById('bar').style.width = (cur / queue.length * 100) + '%';
+  document.getElementById('qn').textContent = 'Вопрос ' + (cur + 1) + ' из ' + queue.length;
+  document.getElementById('badge').textContent = 'Вопрос ' + q.num + ' из ' + TOTAL;
+  document.getElementById('title').textContent = q.title;
+  document.getElementById('ans-txt').textContent = q.answer;
+  var plan = plans[q.num] || [q.title];
+  var h = '';
+  for (var i = 0; i < plan.length; i++) { h += '<div class="pi">' + plan[i] + '</div>'; }
+  document.getElementById('plan').innerHTML = h;
+  document.getElementById('ans').className = 'ans hide';
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').className = 'nbtn hide';
+  document.getElementById('sbtn').className = 'sbtn';
+  document.getElementById('hint').style.display = 'block';
+  var b = document.getElementById('banner');
+  if (weak) { b.className = 'banner'; b.textContent = 'Повтор слабых: ' + queue.length + ' вопросов'; }
+  else { b.className = 'banner hide'; }
+  updateScore();
+  marked = false;
+}
+
+function updateScore() {
+  document.getElementById('sc').innerHTML = '<span style="color:#a8d4a8">+' + good.length + '</span> <span style="color:#d4a8a8">-' + bad.length + '</span>';
+}
+
+function reveal() {
+  document.getElementById('ans').className = 'ans';
+  document.getElementById('checks').className = 'checks';
+  document.getElementById('sbtn').className = 'sbtn hide';
+  document.getElementById('hint').style.display = 'none';
+}
+
+function mark(knew) {
+  if (marked) return;
+  marked = true;
+  var q = queue[cur];
+  var k;
+  if (knew) {
+    bad = bad.filter(function(b){ return b.num !== q.num; });
+    var f = false;
+    for (k = 0; k < good.length; k++) { if (good[k].num === q.num) f = true; }
+    if (!f) good.push(q);
+  } else {
+    good = good.filter(function(g){ return g.num !== q.num; });
+    var f2 = false;
+    for (k = 0; k < bad.length; k++) { if (bad[k].num === q.num) f2 = true; }
+    if (!f2) bad.push(q);
+  }
+  updateScore();
+  document.getElementById('checks').className = 'checks hide';
+  document.getElementById('nbtn').textContent = (cur + 1 < queue.length) ? 'Следующий' : 'Завершить';
+  document.getElementById('nbtn').className = 'nbtn';
+}
+
+function next() {
+  cur++;
+  show();
+}
+
+function showResults() {
+  document.getElementById('study').className = 'hide';
+  document.getElementById('results').className = '';
+  document.getElementById('t0').className = 'tab';
+  document.getElementById('t1').className = 'tab active';
+  var pct = Math.round(good.length / questions.length * 100);
+  document.getElementById('bigsc').textContent = good.length + ' / ' + questions.length;
+  document.getElementById('subsc').textContent = pct + '% знаете';
+  var m;
+  if (pct >= 90) m = 'Отлично! Готов к экзамену!';
+  else if (pct >= 70) m = 'Хорошо! Повторите слабые.';
+  else if (pct >= 50) m = 'Ещё нужно поработать.';
+  else m = 'Повторите материал.';
+  document.getElementById('msgsc').textContent = m;
+  var i, h;
+  if (bad.length > 0) {
+    document.getElementById('badsec').className = '';
+    document.getElementById('badtitle').textContent = 'Не знал: ' + bad.length + ' (нажмите чтобы перейти)';
+    h = '';
+    for (i = 0; i < bad.length; i++) {
+      h += '<div class="ri ri-bad" onclick="jump(\'' + bad[i].num + '\')">[' + bad[i].num + '] ' + bad[i].title + '</div>';
+    }
+    document.getElementById('badlist').innerHTML = h;
+    document.getElementById('repbtn').className = 'ab ab-rep';
+  } else {
+    document.getElementById('badsec').className = 'hide';
+    document.getElementById('repbtn').className = 'ab ab-rep hide';
+  }
+  if (good.length > 0) {
+    document.getElementById('goodsec').className = '';
+    document.getElementById('goodtitle').textContent = 'Знал: ' + good.length;
+    h = '';
+    for (i = 0; i < good.length; i++) {
+      h += '<div class="ri ri-good">[' + good[i].num + '] ' + good[i].title + '</div>';
+    }
+    document.getElementById('goodlist').innerHTML = h;
+  } else {
+    document.getElementById('goodsec').className = 'hide';
+  }
+}
+
+function jump(num) {
+  var idx = -1;
+  for (var i = 0; i < questions.length; i++) { if (questions[i].num === num) idx = i; }
+  if (idx < 0) return;
+  queue = questions.slice();
+  weak = false;
+  cur = idx;
+  marked = false;
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  show();
+}
+
+function doRepeat() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(true);
+}
+
+function doAll() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+  startQuiz(false);
+}
+
+function goStudy() {
+  document.getElementById('results').className = 'hide';
+  document.getElementById('study').className = '';
+  document.getElementById('t0').className = 'tab active';
+  document.getElementById('t1').className = 'tab';
+}
+
+function goStats() {
+  showResults();
+}
+
+startQuiz(false);
+</script>
+</body>
+</html>
